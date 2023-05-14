@@ -1,0 +1,11 @@
+---
+
+- display progress?
+- conditionals (plot properties)
+- items + inventroy
+
+---
+
+- failure endings
+- multiple endings
+- profile selection

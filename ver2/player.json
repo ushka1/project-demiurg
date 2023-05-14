@@ -1,0 +1,14 @@
+{
+  "name": "<player name>",
+  "current_location_id": "<location id>",
+  "interactionsCompleted": {
+    "interaction-1": true,
+    "interaction-2": true,
+    "interaction-3": true
+  },
+  "progress": {
+    "name-1": "value-1",
+    "name-2": "value-2",
+    "name-3": "value-3"
+  }
+}

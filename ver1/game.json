@@ -1,0 +1,22 @@
+{
+  "title": "<game title>",
+  "author": "<author name>",
+  "description": "<game description>",
+  "game": {
+    "start_location_id": "<location id>",
+    "end_location_id": "<location id>",
+    "locations": [
+      {
+        "id": "<location id>",
+        "name": "<location name>",
+        "text": "<location description>",
+        "exits": [
+          {
+            "destination_location_id": "<location id>",
+            "text": "text"
+          }
+        ]
+      }
+    ]
+  }
+}

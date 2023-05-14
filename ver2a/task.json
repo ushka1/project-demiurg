@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": "<task id>",
+      "name": "<task name>",
+      "description": "<task description>",
+      "stages": [
+        {
+          "id": 1,
+          "parent": -1,
+          "text": "<text>"
+        }
+      ]
+    }
+  ]
+}

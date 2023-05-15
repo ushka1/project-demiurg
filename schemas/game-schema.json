@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "title": "<game title>",
+    "author": "<author name>",
+    "description": "<game description>"
+  },
+  "map": {
+    "start": "<location id>",
+    "end": "<location id>",
+    "locations": {
+      "<location id>": {
+        "name": "<location name>",
+        "text": "<location description>",
+        "exits": {
+          "N": {
+            "to": "<location id>",
+            "text": "<exit description>"
+          },
+          "E": {
+            "to": "<location id>",
+            "text": "<exit description>"
+          },
+          "S": {
+            "to": "<location id>",
+            "text": "<exit description>"
+          },
+          "W": {
+            "to": "<location id>",
+            "text": "<exit description>"
+          }
+        }
+      }
+    }
+  }
+}

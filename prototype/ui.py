@@ -1,4 +1,4 @@
-from event_manager import EventManager
+from eventing import EventManager, EventType
 
 
 class UI:
@@ -7,14 +7,8 @@ class UI:
 
     def setup(self):
         self.event_manager.subscribe(
-            "update-location",
-            self.update_location_handler)
+            EventType.MAP_LOCATION_CHANGED,
+            self.update_location)
 
-    def update_location_handler(self, data):
+    def update_location(self, data):
         print(data)
-
-    def print(self, message):
-        print(message)
-
-    def clear(self):
-        print("--------------------")

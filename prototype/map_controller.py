@@ -1,4 +1,4 @@
-from event_manager import EventManager
+from eventing import EventManager, EventType
 
 
 class MapController:
@@ -7,5 +7,8 @@ class MapController:
 
     def setup(self):
         self.event_manager.subscribe(
-            "update-location",
+            EventType.LOCATION_BUTTON_CLICK,
             self.update_location_handler)
+
+    def update_location_handler(self, data):
+        print(data)

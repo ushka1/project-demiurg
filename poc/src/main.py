@@ -4,7 +4,7 @@ from models.game_data import GameData
 from models.game_state import GameState
 from runtime.runtime import Runtime
 
-filename = "mighty-roomba.json"
+filename = "./library/mighty-roomba/game-data.json"
 with open(filename) as f:
     data_dict = json.load(f)
 

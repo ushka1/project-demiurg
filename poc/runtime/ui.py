@@ -1,9 +1,11 @@
-from game_data import GameData
-from game_state import GameState
+from models.game_data import GameData
+from models.game_state import GameState, GameStateUpdate
+from runtime.runtime_interface import RuntimeInterface
 
 
 class UI:
-    def __init__(self, game_data: GameData):
+    def __init__(self, runtime: RuntimeInterface, game_data: GameData):
+        self.runtime = runtime
         self.game_data = game_data
 
     def render(self, game_state: GameState):
@@ -22,3 +24,8 @@ class UI:
         choice = input("Your choice: ")
         while (choice not in available_exits):
             choice = input("Invalid choice. Try again: ")
+
+        new_location_id = available_exits[choice].to
+
+        self.runtime.notify_controller(
+            GameStateUpdate(location=new_location_id))

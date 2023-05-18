@@ -1,25 +1,60 @@
 # Project Demiurg
 
-1. Gra z możliwością przechodzenia między lokacjami.
-   Każda lokacja posiada:
+## Setup
 
-   - swój opis,
-   - listę przejść do innych lokacji.
+### Requirements
 
-   Kreator:
+- Python 3.10+
 
-   - twórca za tworzy mapę,
-   - twórca ustawia entrance oraz exit (start i koniec gry),
-   - twórca eksportuje plik json w odpowiednim formacie,
-   - twórca importuje plik json.
+### Guide
 
-   Interpreter:
+1. Run `src/main.py`.
 
-   - przeszukać folder z grami (bibliotekę), wypisując wszystkie gry,
-   - użytkownik wybiera grę,
-   - gra zostaje uruchomiona, plik json jest ładowany i na jego podstawie odpalana jest gra.
+## JSON Game Schema
 
-2.Dodanie interakcji oraz postaci gracza, tworzenia postaci.
-3.Dodanie opcji zapisania postępów.
-4.Jakiś prosty sposób na udostępnianie gry przez twórcę dla gracza.
-5.Refactor i taki tam quality time + sposób dostarczenia (Docker).
+Game has to be in the following format:
+
+```json
+{
+  "metadata": {
+    "title": "<game title>",
+    "author": "<author name>",
+    "description": "<game description>"
+  },
+  "map": {
+    "start_location_id": "<location id>",
+    "end_location_id": "<location id>",
+    "locations": {
+      "<location id>": {
+        "name": "<location name>",
+        "text": "<location text>",
+        "exits": {
+          "N": {
+            "location_id": "<location id>",
+            "text": "<exit text>"
+          },
+          "E": {
+            "location_id": "<location id>",
+            "text": "<exit text>"
+          },
+          "S": {
+            "location_id": "<location id>",
+            "text": "<exit text>"
+          },
+          "W": {
+            "location_id": "<location id>",
+            "text": "<exit text>"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## To Do
+
+- Interactions, conditionals
+- Items, inventroy
+- Multiple endings (good, bad, etc.)
+- Profile selection

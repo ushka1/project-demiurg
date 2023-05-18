@@ -1,10 +1,10 @@
 from models.game_data import GameData
 from models.game_state import GameState, GameStateUpdate
-from runtime.runtime_interface import RuntimeInterface
+from runtime.i_runtime import IRuntime
 
 
 class UI:
-    def __init__(self, runtime: RuntimeInterface, game_data: GameData):
+    def __init__(self, runtime: IRuntime, game_data: GameData):
         self.runtime = runtime
         self.game_data = game_data
 

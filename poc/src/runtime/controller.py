@@ -1,11 +1,11 @@
 from models.game_data import GameData
 from models.game_state import GameState, GameStateUpdate
-from runtime.runtime_interface import RuntimeInterface
+from runtime.i_runtime import IRuntime
 
 
 class Controller:
     def __init__(self,
-                 runtime: RuntimeInterface,
+                 runtime: IRuntime,
                  game_data: GameData,
                  game_state: GameState):
         self.runtime = runtime

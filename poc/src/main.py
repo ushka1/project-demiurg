@@ -15,5 +15,4 @@ game_data = GameData(**data_dict)
 game_state = GameState(location_id=game_data.map.start_location_id)
 runtime = Runtime(game_data, game_state)
 
-
 runtime.start()

@@ -1,12 +1,15 @@
+from dataclasses import dataclass
+
 from models.game_data import GameData
 from models.game_state import GameState, GameStateUpdate
+
 from runtime.i_runtime import IRuntime
 
 
+@dataclass
 class UI:
-    def __init__(self, runtime: IRuntime, game_data: GameData):
-        self.runtime = runtime
-        self.game_data = game_data
+    runtime: IRuntime
+    game_data: GameData
 
     def render(self, game_state: GameState):
         current_location = self.game_data.map.locations[game_state.location_id]

@@ -6,9 +6,10 @@ from models.game_state import GameState
 from runtime.runtime import Runtime
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, "../library/mighty-roomba/game-data.json")
+library_dir = os.path.join(script_dir, "../library")
+game_path = os.path.join(library_dir, "mighty-roomba/game-data.json")
 
-with open(file_path) as f:
+with open(game_path) as f:
     data_dict = json.load(f)
 
 game_data = GameData(**data_dict)

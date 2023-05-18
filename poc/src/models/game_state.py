@@ -1,11 +1,12 @@
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
 class GameState:
-    location: str
+    location_id: str
 
 
 @dataclass
 class GameStateUpdate:
-    location: str | None = None
+    location_id: Optional[str] = None

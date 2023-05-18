@@ -13,7 +13,7 @@ class Controller:
         self.game_state = game_state
 
     def receive_update(self, game_state_update: GameStateUpdate):
-        if (game_state_update.location):
-            self.game_state.location = game_state_update.location
+        if (game_state_update.location_id):
+            self.game_state.location_id = game_state_update.location_id
 
         self.runtime.notify_ui(self.game_state)

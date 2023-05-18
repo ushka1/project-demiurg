@@ -5,15 +5,15 @@
     "description": "Very short game about a very brave Roomba."
   },
   "map": {
-    "start": "0",
-    "end": "3",
+    "start_location_id": "0",
+    "end_location_id": "3",
     "locations": {
       "0": {
         "name": "Entrance",
         "text": "You are a Roomba. You are in a room. There is a door to the north.",
         "exits": {
           "N": {
-            "to": "1",
+            "location_id": "1",
             "text": "Go north"
           }
         }
@@ -23,11 +23,11 @@
         "text": "You are in a hallway. There is a door to the south and a door to the north.",
         "exits": {
           "S": {
-            "to": "0",
+            "location_id": "0",
             "text": "Go south"
           },
           "N": {
-            "to": "2",
+            "location_id": "2",
             "text": "Go north"
           }
         }
@@ -37,11 +37,11 @@
         "text": "You are in a kitchen. There is a door to the south and a door to the north.",
         "exits": {
           "S": {
-            "to": "1",
+            "location_id": "1",
             "text": "Go south"
           },
           "N": {
-            "to": "3",
+            "location_id": "3",
             "text": "Go north"
           }
         }

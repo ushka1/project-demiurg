@@ -5,28 +5,28 @@
     "description": "<game description>"
   },
   "map": {
-    "start": "<location id>",
-    "end": "<location id>",
+    "start_location_id": "<location id>",
+    "end_location_id": "<location id>",
     "locations": {
       "<location id>": {
         "name": "<location name>",
-        "text": "<location description>",
+        "text": "<location text>",
         "exits": {
           "N": {
-            "to": "<location id>",
-            "text": "<exit description>"
+            "location_id": "<location id>",
+            "text": "<exit text>"
           },
           "E": {
-            "to": "<location id>",
-            "text": "<exit description>"
+            "location_id": "<location id>",
+            "text": "<exit text>"
           },
           "S": {
-            "to": "<location id>",
-            "text": "<exit description>"
+            "location_id": "<location id>",
+            "text": "<exit text>"
           },
           "W": {
-            "to": "<location id>",
-            "text": "<exit description>"
+            "location_id": "<location id>",
+            "text": "<exit text>"
           }
         }
       }

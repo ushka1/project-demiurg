@@ -11,7 +11,7 @@ class _Metadata:
 
 @dataclass
 class _Exit:
-    to: str
+    location_id: str
     text: str
 
 
@@ -31,8 +31,8 @@ class _Location:
 
 @dataclass
 class _Map:
-    start: str
-    end: str
+    start_location_id: str
+    end_location_id: str
     locations: Dict[str, _Location] = field(default_factory=dict)
 
     def __post_init__(self):
@@ -53,3 +53,6 @@ class GameData:
             self.metadata = _Metadata(**self.metadata)
         if (isinstance(self.map, dict)):
             self.map = _Map(**self.map)
+
+    def get_location_by_id(self, location_id: str) -> _Location:
+        return self.map.locations[location_id]

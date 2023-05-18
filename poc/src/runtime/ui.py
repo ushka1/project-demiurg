@@ -9,9 +9,9 @@ class UI:
         self.game_data = game_data
 
     def render(self, game_state: GameState):
-        current_location = self.game_data.map.locations[game_state.location]
+        current_location = self.game_data.map.locations[game_state.location_id]
         if current_location is None:
-            raise RuntimeError("Invalid location: " + game_state.location)
+            raise RuntimeError("Invalid location: " + game_state.location_id)
 
         print(current_location.name + ": " + current_location.text + "\n")
 
@@ -25,7 +25,7 @@ class UI:
         while (choice not in available_exits):
             choice = input("Invalid choice. Try again: ")
 
-        new_location_id = available_exits[choice].to
+        new_location_id = available_exits[choice].location_id
 
         self.runtime.notify_controller(
-            GameStateUpdate(location=new_location_id))
+            GameStateUpdate(location_id=new_location_id))

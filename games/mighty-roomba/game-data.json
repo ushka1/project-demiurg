@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "Mighty Roomba",
+    "author": "Eldorado Games",
+    "description": "Very short game about a very brave Roomba."
+  },
+  "map": {
+    "start_location_id": "0",
+    "end_location_id": "3",
+    "locations": {
+      "0": {
+        "name": "Entrance",
+        "text": "You are a Roomba. You are in a room. There is a door to the north.",
+        "exits": {
+          "N": {
+            "location_id": "1",
+            "text": "Go north"
+          }
+        }
+      },
+      "1": {
+        "name": "Hallway",
+        "text": "You are in a hallway. There is a door to the south and a door to the north.",
+        "exits": {
+          "S": {
+            "location_id": "0",
+            "text": "Go south"
+          },
+          "N": {
+            "location_id": "2",
+            "text": "Go north"
+          }
+        }
+      },
+      "2": {
+        "name": "Kitchen",
+        "text": "You are in a kitchen. There is a door to the south and a door to the north.",
+        "exits": {
+          "S": {
+            "location_id": "1",
+            "text": "Go south"
+          },
+          "N": {
+            "location_id": "3",
+            "text": "Go north"
+          }
+        }
+      },
+      "3": {
+        "name": "Living room",
+        "text": "You are in a living room. You won!",
+        "exits": {}
+      }
+    }
+  }
+}

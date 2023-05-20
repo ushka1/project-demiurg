@@ -5,6 +5,11 @@ from models.game_data import Exit, Location
 
 
 class IRuntime(ABC):
+    """
+    Interface for the runtime. This is the interface that the UI uses to
+    communicate with the runtime.
+    """
+
     @abstractmethod
     def get_current_location(self) -> Location:
         pass

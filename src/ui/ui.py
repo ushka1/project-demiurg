@@ -19,16 +19,17 @@ class UI:
         print("Location: " + current_location.name)
         print(current_location.text)
 
-        available_exits = self.runtime.get_available_exits()
-        if not available_exits:
+        if current_location.is_end_location:
             return
 
-        print("\nAvailable exits:")
-        for key, value in available_exits.items():
-            print(key + ": " + value.text)
+        available_exits = self.runtime.get_available_exits()
+        if available_exits:
+            print("\nAvailable exits:")
+            for key, value in available_exits.items():
+                print(key + ": " + value.text)
 
         message = self.runtime.get_message()
-        if message is not None:
+        if message:
             print("\nMessage: " + message)
 
         self.listen_for_input()

@@ -6,7 +6,6 @@
   },
   "map": {
     "start_location_id": "0",
-    "end_location_id": "3",
     "locations": {
       "0": {
         "name": "Entrance",
@@ -49,7 +48,8 @@
       "3": {
         "name": "Living room",
         "text": "You are in a living room. You won!",
-        "exits": {}
+        "exits": {},
+        "is_end_location": true
       }
     }
   }

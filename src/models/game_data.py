@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Dict
+from typing import Dict, Optional
 
 """
 These are the dataclasses that represent the game data. They are used to
@@ -25,6 +25,7 @@ class Location:
     name: str
     text: str
     exits: Dict[str, Exit] = field(default_factory=dict)
+    is_end_location: Optional[bool] = None
 
     def __post_init__(self):
         exits = {}
@@ -37,7 +38,6 @@ class Location:
 @dataclass
 class Map:
     start_location_id: str
-    end_location_id: str
     locations: Dict[str, Location] = field(default_factory=dict)
 
     def __post_init__(self):

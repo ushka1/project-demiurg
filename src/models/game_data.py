@@ -1,6 +1,11 @@
 from dataclasses import dataclass, field
 from typing import Dict
 
+"""
+These are the dataclasses that represent the game data. They are used to
+convert the JSON data into Python objects for easier usage.
+"""
+
 
 @dataclass
 class Metadata:

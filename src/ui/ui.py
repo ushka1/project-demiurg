@@ -6,6 +6,10 @@ from runtime.i_runtime import IRuntime
 
 @dataclass
 class UI:
+    """
+    UI is responsible for rendering the game state and handling user input.
+    """
+
     runtime: IRuntime
 
     def rerender(self):

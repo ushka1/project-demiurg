@@ -1,8 +1,9 @@
 import json
 import os
+from typing import Tuple
 
 from models.game_data import GameData
-from models.game_state import GameState
+from models.game_progress import GameProgress
 
 
 class Library:
@@ -11,39 +12,45 @@ class Library:
         current_dir,
         "../../games")
 
-    def get_game_data(self) -> GameData:
-        return self.game_data
+    def load_game(self, game_name: str) -> Tuple[GameData, GameProgress]:
+        """
+        Load the game data and game progress for the given game name. If
+        progress does not exist, create a new one with default values.
+        """
+        game_data = self._load_game_data(game_name)
 
-    def get_game_state(self) -> GameState:
-        return self.game_state
+        try:
+            game_progress = self._load_game_progress(game_name)
+        except IOError:
+            game_progress = GameProgress(
+                location_id=game_data.map.start_location_id)
 
-    def load_game(self, game_name: str):
-        self.game_name = game_name
-        self._load_game_data()
-        self._load_game_state()
+        return game_data, game_progress
 
-    def _load_game_data(self):
+    def _load_game_data(self, game_name: str) -> GameData:
+        """
+        Import content of game-data.json file and convert it into a GameData object.
+        """
         game_data_path = os.path.join(
             self.library_dir,
-            self.game_name,
+            game_name,
             "game-data.json")
 
         with open(game_data_path) as f:
             json_data = json.load(f)
 
-        self.game_data = GameData(**json_data)
+        return GameData(**json_data)
 
-    def _load_game_state(self):
-        try:
-            game_state_path = os.path.join(
-                self.library_dir,
-                self.game_name,
-                "game-state.json")
+    def _load_game_progress(self, game_name: str) -> GameProgress:
+        """
+        Import content of game-progress.json file and convert it into a GameProgress object.
+        """
+        game_progress_path = os.path.join(
+            self.library_dir,
+            game_name,
+            "game-state.json")
 
-            with open(game_state_path) as f:
-                json_data = json.load(f)
+        with open(game_progress_path) as f:
+            json_data = json.load(f)
 
-            self.game_state = GameState(**json_data)
-        except IOError:
-            self.game_state = GameState(
-                location_id=self.game_data.map.start_location_id)
+        return GameProgress(**json_data)

@@ -1,26 +1,37 @@
-from copy import deepcopy
 from dataclasses import dataclass
 from typing import Dict
 
 from models.game_data import Exit, GameData, Location
-from models.game_state import GameState
+from models.game_progress import GameProgress
 from runtime.i_runtime import IRuntime
 from ui.ui import UI
 
 
 @dataclass
 class Runtime(IRuntime):
-    def __init__(self,  game_data: GameData, game_state: GameState):
+    """
+    Runtime acts as a bridge between the UI and the game data. It is responsible for
+    keeping track of the game progress and updating the UI when necessary.
+
+    It also exposes some methods via the IRuntime interface that the UI can use to get
+    information about the game progress (e.g. get_current_location) and
+    to handle user actions (e.g. select_exit).
+    """
+
+    def __init__(self,  game_data: GameData, game_progress: GameProgress):
         self.ui = UI(self)
         self.game_data = game_data
-        self.game_state = game_state
+        self.game_progress = game_progress
 
-    def start(self):
+    def start_game(self):
+        self.update_ui()
+
+    def update_ui(self):
         self.ui.rerender()
 
     def get_current_location(self) -> Location:
         current_location = self.game_data.get_location_by_id(
-            self.game_state.location_id)
+            self.game_progress.location_id)
         return current_location
 
     def get_available_exits(self) -> Dict[str, Exit]:
@@ -29,15 +40,15 @@ class Runtime(IRuntime):
         return available_exits
 
     def get_message(self) -> str | None:
-        return self.game_state.message
+        return self.game_progress.message
 
     def select_exit(self, exit_key: str):
         available_exits = self.get_available_exits()
 
         if (exit_key not in available_exits.keys()):
-            self.game_state.message = "There is no exit: " + exit_key
+            self.game_progress.message = "There is no exit: " + exit_key
         else:
-            self.game_state.message = None
-            self.game_state.location_id = available_exits[exit_key].location_id
+            self.game_progress.message = None
+            self.game_progress.location_id = available_exits[exit_key].location_id
 
-        self.ui.rerender()
+        self.update_ui()

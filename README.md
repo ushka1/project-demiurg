@@ -54,7 +54,9 @@ Game has to be in the following format:
 
 ## To Do
 
-- Interactions, conditionals
+- UI
+- Progress saving
+- Interactions, tasks, conditions
 - Items, inventroy
-- Multiple endings (good, bad, etc.)
+- Multiple endings (good, bad, ...)
 - Profile selection

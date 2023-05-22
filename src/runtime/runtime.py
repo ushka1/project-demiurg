@@ -22,8 +22,10 @@ class Runtime(IRuntime):
         self.ui = UI(self)
         self.game_data = game_data
         self.game_progress = game_progress
+        self.ui.run()
 
     def start_game(self):
+        return
         self.update_ui()
 
     def update_ui(self):
@@ -45,7 +47,7 @@ class Runtime(IRuntime):
     def select_exit(self, exit_key: str):
         available_exits = self.get_available_exits()
 
-        if (exit_key not in available_exits.keys()):
+        if exit_key not in available_exits.keys():
             self.game_progress.message = "There is no exit: " + exit_key
         else:
             self.game_progress.message = None

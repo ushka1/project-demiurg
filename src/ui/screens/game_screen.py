@@ -55,7 +55,6 @@ class GameScreen(MDScreen):
 
         self.description = text
 
-
     def _update_input_labels(self):
         self.available_exits = []
 
@@ -85,7 +84,7 @@ class GameScreen(MDScreen):
         if key == KEYS["enter"]:
             self.app.runtime.select_exit(self.marked_input.direction)
 
-        elif key == KEYS["arrow-up"]:
+        elif key == KEYS["arrow-down"]:
             index = self.marked_input.index + 1
             if index < 0 or index >= len(self.available_exits):
                 index = self.marked_input.index
@@ -96,7 +95,7 @@ class GameScreen(MDScreen):
         # elif key == KEYS["arrow-right"]:
         #     self._mark_input("E")
 
-        elif key == KEYS["arrow-down"]:
+        elif key == KEYS["arrow-up"]:
             index = self.marked_input.index - 1
             if index < 0 or index >= len(self.available_exits):
                 index = self.marked_input.index

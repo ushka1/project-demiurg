@@ -41,7 +41,7 @@ class GameScreen(MDScreen):
     def _update_description(self):
         current_location = self.app.runtime.get_current_location()
         text = "Location: " + current_location.name
-        text += "\n" + current_location.text
+        text += "\n\n" + current_location.text
 
         if current_location.is_end_location:
             self.description = text

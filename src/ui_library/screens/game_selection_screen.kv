@@ -1,0 +1,59 @@
+#:import rgba kivy.utils.get_color_from_hex
+
+<GameSelectionScreen>:
+    canvas.before:
+        Color:
+            rgba: rgba("#101319")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            canvas:
+                Color:
+                    rgba: rgba("#1E232E")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            elevation: 10
+
+            RelativeLayout:
+                MDIconButton:
+                    icon: "menu"
+                    on_press: app.root.ids.nav_drawer.set_state("open")
+                    pos_hint: {"x": 0, "center_y": 1}
+
+                MDLabel:
+                    text: "DEMIURG"
+                    font_name: "Monoton"
+                    font_size: dp(40)
+                    pos_hint: {"x": 0.8, "center_y": 1}
+
+
+        Widget:  # needed for top bar to stay at the top
+
+#    MDCard:
+#        size_hint: 1, 1
+#        md_bg_color: 1, 0, 0, 1
+
+    ScrollView:
+        pos_hint: {"x": 0.5, "top": 0.55}
+        size_hint: 0.3, 0.6
+
+        StackLayout:
+            spacing: dp(20)
+            size_hint_y: None
+            height: self.minimum_height
+            id: stack
+            padding: (5, 50, 0, 0)
+
+#            ProjectCard:
+#                pos_hint: {"center_x": 0.5, "center_y": 0.65}
+#
+#            ProjectCard:
+#                pos_hint: {"center_x": 0.5, "center_y": 0.45}
+#
+#            ProjectCard:
+#                pos_hint: {"center_x": 0.5, "center_y": 0.25}

@@ -1,0 +1,131 @@
+<GameScreen>:
+    canvas.before:
+        Color:
+            rgba: rgba("#101319")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            canvas:
+                Color:
+                    rgba: rgba("#1E232E")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            elevation: 10
+            id: top_app_bar
+
+            RelativeLayout:
+                MDIconButton:
+                    icon: "menu"
+                    on_press: app.root.ids.nav_drawer.set_state("open")
+                    pos_hint: {"x": 0, "center_y": 1}
+
+                MDLabel:
+                    text: "DEMIURG"
+                    font_name: "Monoton"
+                    font_size: dp(40)
+                    pos_hint: {"x": 0.8, "center_y": 1}
+
+#                MDRectangleFlatIconButton:
+#                    text: "Home"
+#                    icon: "chevron-left"
+#                    line_color: 0, 0, 0, 0
+#                    pos_hint: {"center_x": .1, "center_y": 1}
+#                    font_name: "Nunito"
+#                    text_color: 1, 1, 1, 1
+#                    font_size: dp(20)
+#                    on_press: app.root.ids.screen_manager.current = "menu"
+#
+#                MDTextButton:
+#                    text: "File"
+#                    pos_hint: {"center_x": .2, "center_y": 1}
+#                    font_name: "Nunito"
+#                    text_color: 1, 1, 1, 1
+#                    font_size: dp(20)
+#
+#                Label:
+#                    pos_hint: {"center_x": .5, "center_y": 1}
+#                    text: "Project title"
+#                    font_size: dp(30)
+#                    font_name: "Nunito"
+
+        Widget:  # needed for top bar to stay at the top
+
+    RelativeLayout:
+        id: left_panel
+        canvas:
+            Color:
+                rgba: rgba("#101319")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        pos_hint: {"x": 0, "y": 0}
+        size_hint: 0.3, None
+        height: root.height - top_app_bar.height
+
+        Label:
+            font_name: "Source_code_pro"
+            pos_hint: {"center_x": 0.5, "center_y": 0.84}
+            text: "Character name"
+            font_size: dp(20)
+
+        Label:
+            font_name: "Source_code_pro"
+            pos_hint: {"center_x": 0.5, "center_y": 0.74}
+            text: "Level 1"
+            font_size: dp(20)
+
+    FloatLayout:
+        id: right_panel
+        size_hint: 0.7, None
+        height: root.height - top_app_bar.height
+        pos_hint: {"x": 0.3, "y": 0}
+
+        canvas:
+            Color:
+                rgba: rgba("#101319")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDLabel:
+            id: description
+            pos_hint: {"x": 0.1, "top": 1.2}
+            size_hint_x: 0.8
+            text: root.description
+            font_name: "Source_code_pro_bold"
+            font_size: dp(20)
+            halign: "left"
+
+        InputLabel:
+            id: N
+            pos_hint: {"x": 0.1, "top": 0.5}
+            text: "north"
+            direction: "N"
+
+        InputLabel:
+            id: E
+            pos_hint: {"x": 0.1, "top": 0.4}
+            text: "east"
+            direction: "E"
+
+        InputLabel:
+            id: S
+            pos_hint: {"x": 0.1, "top": 0.3}
+            text: "south"
+            direction: "S"
+
+        InputLabel:
+            id: W
+            pos_hint: {"x": 0.1, "top": 0.2}
+            text: "west"
+            direction: "W"
+#
+#        MDTextButton:
+#            on_press: root.rerender()
+#            text: "render"

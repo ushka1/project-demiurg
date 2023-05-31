@@ -1,12 +1,13 @@
+from kivy.clock import Clock
 from kivy.lang import Builder
 from kivy.properties import StringProperty, ObjectProperty
 from kivymd.uix.screen import MDScreen
 from kivy.app import App
 
 
-from ui.widgets.input_label import InputLabel
+from ui_game.widgets.input_label import InputLabel
 
-Builder.load_file('ui/screens/game_screen.kv')
+Builder.load_file('ui_game/screens/game_screen.kv')
 
 
 KEYS = {
@@ -41,7 +42,7 @@ class GameScreen(MDScreen):
     def _update_description(self):
         current_location = self.app.runtime.get_current_location()
         text = "Location: " + current_location.name
-        text += "\n\n" + current_location.text
+        text += "\n" + current_location.text
 
         if current_location.is_end_location:
             self.description = text
@@ -75,6 +76,9 @@ class GameScreen(MDScreen):
             self._mark_input(self.available_exits[0])
         else:
             self._reset_input_backgrounds()
+
+    def on_enter(self, *args):
+        Clock.schedule_once(lambda x: self.rerender())
 
     def rerender(self):
         self._update_description()

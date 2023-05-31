@@ -4,7 +4,7 @@ from typing import Dict
 from models.game_data import Exit, GameData, Location
 from models.game_progress import GameProgress
 from runtime.i_runtime import IRuntime
-from ui.ui import UI
+from ui_game.game_ui import GameUI
 
 
 @dataclass
@@ -19,7 +19,7 @@ class Runtime(IRuntime):
     """
 
     def __init__(self,  game_data: GameData, game_progress: GameProgress):
-        self.ui = UI(self)
+        self.ui = GameUI(self)
         self.game_data = game_data
         self.game_progress = game_progress
         self.ui.run()
@@ -54,3 +54,4 @@ class Runtime(IRuntime):
             self.game_progress.location_id = available_exits[exit_key].location_id
 
         self.update_ui()
+

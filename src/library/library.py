@@ -4,6 +4,8 @@ from typing import Tuple
 
 from models.game_data import GameData
 from models.game_progress import GameProgress
+from ui_library.library_ui import LibraryUI
+from runtime.runtime import Runtime
 
 
 class Library:
@@ -11,6 +13,10 @@ class Library:
     library_dir = os.path.join(
         current_dir,
         "../../games")
+
+    def __init__(self):
+        self.ui = LibraryUI(self)
+        self.ui.run()
 
     def load_game(self, game_name: str) -> Tuple[GameData, GameProgress]:
         """
@@ -54,3 +60,13 @@ class Library:
             json_data = json.load(f)
 
         return GameProgress(**json_data)
+
+    def get_available_games(self):
+        return ["mighty-roomba", "ant's-adventure"]
+
+    def run_game(self, game):
+        game_data, game_progress = self.load_game(game)
+        self.ui.stop()
+
+        runtime = Runtime(game_data, game_progress)
+        runtime.start_game()

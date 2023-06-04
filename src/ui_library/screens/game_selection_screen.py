@@ -18,6 +18,9 @@ class GameSelectionScreen(MDScreen):
         self.app = App.get_running_app()
 
     def on_enter(self, *args):
+        self.add_game_cards()
+
+    def add_game_cards(self):
         games = self.app.get_available_games()
 
         for game in games:
@@ -26,3 +29,9 @@ class GameSelectionScreen(MDScreen):
 
     def handle_keyboard(self, key):
         pass
+
+    def reload_games(self):
+        for child in self.ids.stack.children:
+            self.ids.stack.remove_widget(child)
+
+        self.add_game_cards()

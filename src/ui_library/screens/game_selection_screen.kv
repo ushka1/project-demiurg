@@ -38,9 +38,16 @@
 #        size_hint: 1, 1
 #        md_bg_color: 1, 0, 0, 1
 
+    Label:
+        text: "Available games:"
+#        font_name: "Monoton"
+        font_size: dp(20)
+        pos_hint: {"center_x": 0.5, "center_y": 0.85}
+
+
     ScrollView:
-        pos_hint: {"x": 0.5, "top": 0.55}
-        size_hint: 0.3, 0.6
+        pos_hint: {"center_x": 0.5, "top": 0.85}
+        size_hint: 0.4, 0.6
 
         StackLayout:
             spacing: dp(20)
@@ -49,11 +56,7 @@
             id: stack
             padding: (5, 50, 0, 0)
 
-#            ProjectCard:
-#                pos_hint: {"center_x": 0.5, "center_y": 0.65}
-#
-#            ProjectCard:
-#                pos_hint: {"center_x": 0.5, "center_y": 0.45}
-#
-#            ProjectCard:
-#                pos_hint: {"center_x": 0.5, "center_y": 0.25}
+    MDTextButton:
+        text: "Add new game"
+        pos_hint: {"center_x": 0.5, "center_y": 0.15}
+        on_press: app.add_new_game()

@@ -1,6 +1,7 @@
 import json
 import os
 from typing import Tuple
+import json
 
 from models.game_data import GameData
 from models.game_progress import GameProgress
@@ -62,7 +63,50 @@ class Library:
         return GameProgress(**json_data)
 
     def get_available_games(self):
-        return ["mighty-roomba", "ant's-adventure"]
+        dirname = os.path.dirname(__file__)
+
+        src_folder = os.path.dirname(dirname)
+        project_folder = os.path.dirname(src_folder)
+        games_folder = os.path.join(project_folder, "games")
+
+        folders = [x[0] for x in os.walk(games_folder)]
+        games = []
+
+        for folder in folders:
+            game = folder.replace(games_folder, "")
+            game = game.replace("\\", "")
+
+            if game != "":
+                games.append(game)
+
+        return games
+
+    def add_new_game(self, path: str) -> bool:
+        file = open(path)
+        data = json.load(file)
+        file.close()
+
+        title = data["metadata"]["title"]
+
+        dirname = os.path.dirname(__file__)
+
+        src_folder = os.path.dirname(dirname)
+        project_folder = os.path.dirname(src_folder)
+        games_folder = os.path.join(project_folder, "games")
+        new_game_folder = os.path.join(games_folder, title)
+
+        try:
+            os.mkdir(new_game_folder)
+        except FileExistsError:
+            return False
+
+        json_object = json.dumps(data, indent=4)
+        json.dumps("")
+
+        with open(os.path.join(new_game_folder, "game-data.json"), "w") as outfile:
+            outfile.write(json_object)
+
+        return True
 
     def run_game(self, game):
         game_data, game_progress = self.load_game(game)

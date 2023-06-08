@@ -7,9 +7,13 @@
 - Python 3.10+
 - Kivy 2.2.0+
 - KivyMD 1.1.1+
+- Plyer 2.1.0+
+- Pyobjus 1.2.2+
 
 ### Guide
 
+1. Install python.
+1. Install all required packages using `pip install -r requirements.txt`.
 1. Run `src/main.py`.
 
 ## JSON Schemas

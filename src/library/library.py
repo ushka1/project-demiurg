@@ -1,18 +1,17 @@
 import json
 import os
 from typing import Tuple
-import json
 
 from models.game_data import GameData
 from models.game_progress import GameProgress
-from ui_library.library_ui import LibraryUI
 from runtime.runtime import Runtime
+from ui_library.library_ui import LibraryUI
 
 
 class Library:
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    library_dir = os.path.join(
-        current_dir,
+    current_folder = os.path.dirname(os.path.abspath(__file__))
+    games_folder = os.path.join(
+        current_folder,
         "../../games")
 
     def __init__(self):
@@ -39,7 +38,7 @@ class Library:
         Import content of game-data.json file and convert it into a GameData object.
         """
         game_data_path = os.path.join(
-            self.library_dir,
+            self.games_folder,
             game_name,
             "game-data.json")
 
@@ -53,7 +52,7 @@ class Library:
         Import content of game-progress.json file and convert it into a GameProgress object.
         """
         game_progress_path = os.path.join(
-            self.library_dir,
+            self.games_folder,
             game_name,
             "game-state.json")
 
@@ -63,18 +62,16 @@ class Library:
         return GameProgress(**json_data)
 
     def get_available_games(self):
-        dirname = os.path.dirname(__file__)
-
-        src_folder = os.path.dirname(dirname)
-        project_folder = os.path.dirname(src_folder)
-        games_folder = os.path.join(project_folder, "games")
-
-        folders = [x[0] for x in os.walk(games_folder)]
+        """
+        Get a list of all available games.
+        """
+        paths = [x[0] for x in os.walk(self.games_folder)]
         games = []
 
-        for folder in folders:
-            game = folder.replace(games_folder, "")
+        for path in paths:
+            game = path.replace(self.games_folder, "")
             game = game.replace("\\", "")
+            game = game.replace("/", "")
 
             if game != "":
                 games.append(game)
@@ -82,18 +79,15 @@ class Library:
         return games
 
     def add_new_game(self, path: str) -> bool:
-        file = open(path)
-        data = json.load(file)
-        file.close()
+        """
+        Add a new game to the library. The game must be a valid JSON file.
+        """
+        gamefile = open(path)
+        data = json.load(gamefile)
+        gamefile.close()
 
         title = data["metadata"]["title"]
-
-        dirname = os.path.dirname(__file__)
-
-        src_folder = os.path.dirname(dirname)
-        project_folder = os.path.dirname(src_folder)
-        games_folder = os.path.join(project_folder, "games")
-        new_game_folder = os.path.join(games_folder, title)
+        new_game_folder = os.path.join(self.games_folder, title)
 
         try:
             os.mkdir(new_game_folder)
@@ -109,6 +103,9 @@ class Library:
         return True
 
     def run_game(self, game):
+        """
+        Run the game with the given name.
+        """
         game_data, game_progress = self.load_game(game)
         self.ui.stop()
 

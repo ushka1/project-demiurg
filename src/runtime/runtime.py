@@ -26,7 +26,6 @@ class Runtime(IRuntime):
 
     def start_game(self):
         return
-        self.update_ui()
 
     def update_ui(self):
         self.ui.rerender()
@@ -54,4 +53,3 @@ class Runtime(IRuntime):
             self.game_progress.location_id = available_exits[exit_key].location_id
 
         self.update_ui()
-

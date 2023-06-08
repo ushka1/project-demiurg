@@ -24,6 +24,10 @@ Both of these files must be in a specific format that is shown below.
 
 Properties with `?` sign are optional.
 
+### Creator app
+
+App that is used to create games is located at [Demiurg_Creator](https://github.com/Lightios/Demiurg_Creator). It is a Kivy app that allows you to create a game-data.json file.
+
 ### game-data.json
 
 Game data file contains all the information about the game itself such as metadata, map, tasks, etc.

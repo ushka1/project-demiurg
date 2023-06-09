@@ -34,10 +34,6 @@
 
         Widget:  # needed for top bar to stay at the top
 
-#    MDCard:
-#        size_hint: 1, 1
-#        md_bg_color: 1, 0, 0, 1
-
     Label:
         text: "Available games:"
 #        font_name: "Monoton"
@@ -55,8 +51,3 @@
             height: self.minimum_height
             id: stack
             padding: (5, 50, 0, 0)
-
-    MDTextButton:
-        text: "Add new game"
-        pos_hint: {"center_x": 0.5, "center_y": 0.15}
-        on_press: app.add_new_game()

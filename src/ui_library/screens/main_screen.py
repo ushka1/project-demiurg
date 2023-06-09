@@ -2,7 +2,7 @@ from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
 from kivy.app import App
 
-from ui_library.widgets.main_screen_button import MainScreenButton
+from ui_library.widgets.oldschool_button_library import OldschoolButtonLibrary
 
 Builder.load_file('ui_library/screens/main_screen.kv')
 

@@ -31,29 +31,6 @@
                     font_size: dp(40)
                     pos_hint: {"x": 0.8, "center_y": 1}
 
-#                MDRectangleFlatIconButton:
-#                    text: "Home"
-#                    icon: "chevron-left"
-#                    line_color: 0, 0, 0, 0
-#                    pos_hint: {"center_x": .1, "center_y": 1}
-#                    font_name: "Nunito"
-#                    text_color: 1, 1, 1, 1
-#                    font_size: dp(20)
-#                    on_press: app.root.ids.screen_manager.current = "menu"
-#
-#                MDTextButton:
-#                    text: "File"
-#                    pos_hint: {"center_x": .2, "center_y": 1}
-#                    font_name: "Nunito"
-#                    text_color: 1, 1, 1, 1
-#                    font_size: dp(20)
-#
-#                Label:
-#                    pos_hint: {"center_x": .5, "center_y": 1}
-#                    text: "Project title"
-#                    font_size: dp(30)
-#                    font_name: "Nunito"
-
         Widget:  # needed for top bar to stay at the top
 
     RelativeLayout:
@@ -125,7 +102,9 @@
             pos_hint: {"x": 0.1, "top": 0.2}
             text: "west"
             direction: "W"
-#
-#        MDTextButton:
-#            on_press: root.rerender()
-#            text: "render"
+
+        OldschoolButtonGame:
+            text: "Restart game"
+            on_press: app.restart_game(); self.pos_hint = {"x": -1, "top": -1}  # hide
+            pos_hint: {"x": -1, "top": -1}
+            id: restart_button

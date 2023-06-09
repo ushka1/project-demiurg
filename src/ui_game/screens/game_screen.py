@@ -6,6 +6,7 @@ from kivy.app import App
 
 
 from ui_game.widgets.input_label import InputLabel
+from ui_game.widgets.oldschool_button_game import OldschoolButtonGame
 
 Builder.load_file('ui_game/screens/game_screen.kv')
 
@@ -46,6 +47,7 @@ class GameScreen(MDScreen):
 
         if current_location.is_end_location:
             self.description = text
+            self._show_restart_button()
             return
 
         text += "\n\nAvailable exits:"
@@ -77,6 +79,9 @@ class GameScreen(MDScreen):
         else:
             self._reset_input_backgrounds()
 
+    def _show_restart_button(self):
+        self.ids.restart_button.pos_hint = {"center_x": 0.5, "center_y": 0.5}
+
     def on_enter(self, *args):
         Clock.schedule_once(lambda x: self.rerender())
 
@@ -96,9 +101,6 @@ class GameScreen(MDScreen):
             to_mark = self.available_exits[index]
             self._mark_input(to_mark)
 
-        # elif key == KEYS["arrow-right"]:
-        #     self._mark_input("E")
-
         elif key == KEYS["arrow-up"]:
             index = self.marked_input.index - 1
             if index < 0 or index >= len(self.available_exits):
@@ -106,6 +108,3 @@ class GameScreen(MDScreen):
 
             to_mark = self.available_exits[index]
             self._mark_input(to_mark)
-
-        # elif key == KEYS["arrow-left"]:
-        #     self._mark_input("W")

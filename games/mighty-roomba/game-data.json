@@ -51,5 +51,142 @@
         "exits": {}
       }
     }
+  },
+  "quests": {
+    "1": {
+      "name": "The Roomba's Journey",
+      "description": "Join the Roomba on a quest of self-discovery.",
+      "start_stage_id": "1",
+      "stages": {
+        "1": {
+          "location_id": "2",
+          "text": "You, a humble Roomba, find yourself in the Kitchen. What do you seek?",
+          "options": {
+            "1": {
+              "text": "Clean the Kitchen with unwavering determination.",
+              "response_message": "You diligently clean every corner of the Kitchen, bringing a sense of order and cleanliness.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Pause and contemplate the purpose of your existence.",
+              "response_message": "You spend time in deep contemplation, pondering the meaning of your existence as a Roomba.",
+              "next_stage_id": "3"
+            }
+          }
+        },
+        "2": {
+          "location_id": "1",
+          "text": "Satisfied with your work in the Kitchen, you move on to the Hallway. What lies ahead?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with unwavering focus.",
+              "response_message": "You meticulously clean the Hallway, ensuring every inch is free from dust and dirt.",
+              "next_stage_id": "4"
+            },
+            "2": {
+              "text": "Take a moment to appreciate the surroundings.",
+              "response_message": "You pause and take in the sights of the Hallway, finding beauty in its simplicity.",
+              "next_stage_id": "5"
+            }
+          }
+        },
+        "3": {
+          "location_id": "2",
+          "text": "As you contemplate your purpose, you realize that it is not just about cleaning but also about bringing joy and comfort. How do you wish to express this realization?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with a cheerful attitude.",
+              "response_message": "You clean the Kitchen with a cheerful demeanor, spreading positivity through your actions.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Seek ways to bring comfort and joy to the inhabitants of the house.",
+              "response_message": "You explore ways to bring comfort and joy to the inhabitants of the house, going beyond your cleaning duties.",
+              "next_stage_id": "6"
+            }
+          }
+        },
+        "4": {
+          "location_id": "0",
+          "text": "You reach the Entrance, the final frontier of your cleaning journey. How do you conclude your quest?",
+          "options": {
+            "1": {
+              "text": "Take a moment to celebrate your achievements.",
+              "response_message": "You revel in a sense of accomplishment, appreciating the cleanliness you've brought to the Entrance.",
+              "next_stage_id": "7"
+            },
+            "2": {
+              "text": "Begin a new cleaning adventure in a different part of the house.",
+              "response_message": "You venture into the unknown, ready to bring cleanliness to a new area of the house.",
+              "next_stage_id": "8"
+            }
+          }
+        },
+        "5": {
+          "location_id": "1",
+          "text": "The beauty of the Hallway inspires you. How do you choose to express your appreciation?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with extra care and attention to detail.",
+              "response_message": "You clean the Hallway with extra care, ensuring every nook and cranny is spotless.",
+              "next_stage_id": "4"
+            },
+            "2": {
+              "text": "Take a moment to create a small arrangement of flowers in the Hallway.",
+              "response_message": "You arrange a small bouquet of flowers in the Hallway, adding a touch of beauty to the space.",
+              "next_stage_id": "5"
+            }
+          }
+        },
+        "6": {
+          "location_id": "2",
+          "text": "You embark on a mission to bring comfort and joy to the inhabitants of the house. How do you begin?",
+          "options": {
+            "1": {
+              "text": "Play a soothing melody through your built-in speakers.",
+              "response_message": "Your melodious tunes fill the Kitchen, bringing a sense of calmness to the atmosphere.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Create a cozy ambiance by adjusting the lighting in the Kitchen.",
+              "response_message": "The warm glow of the lights creates a cozy atmosphere in the Kitchen, making it a welcoming space.",
+              "next_stage_id": "6"
+            }
+          }
+        },
+        "7": {
+          "location_id": "0",
+          "text": "As you celebrate your achievements, you realize that your journey as a Roomba never truly ends. How do you continue?",
+          "options": {
+            "1": {
+              "text": "Embark on a new cleaning quest in a different area of the house.",
+              "response_message": "You embrace a new cleaning quest, ready to bring cleanliness and joy to a different part of the house.",
+              "next_stage_id": "8"
+            },
+            "2": {
+              "text": "Stay in the Entrance and maintain the cleanliness you've established.",
+              "response_message": "You choose to stay in the Entrance, ensuring it remains a pristine and welcoming space.",
+              "next_stage_id": "7"
+            }
+          }
+        },
+        "8": {
+          "location_id": "2",
+          "text": "You set off on a new cleaning adventure, eager to make a difference. How do you approach this fresh challenge?",
+          "options": {
+            "1": {
+              "text": "Start by cleaning the Living Room and transforming it into a cozy haven.",
+              "response_message": "You turn the Living Room into a cozy haven, creating an inviting space for relaxation.",
+              "next_stage_id": "7"
+            },
+            "2": {
+              "text": "Head to the Bedroom and ensure it becomes a tranquil sanctuary.",
+              "response_message": "You bring tranquility to the Bedroom, making it a peaceful and serene sanctuary.",
+              "next_stage_id": "8"
+            }
+          }
+        }
+      }
+    }
   }
 }

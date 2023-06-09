@@ -1,10 +1,16 @@
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, List
 
-from models.game_data import Exit, GameData, Location
-from models.game_progress import GameProgress
+from config.globals import ui_type
+from models.game_data import GameData
+from models.game_progress import GameProgress, QuestProgress
+from models.map import Location, LocationExit
+from models.quests import QuestStage
 from runtime.i_runtime import IRuntime
-from ui_game.game_ui import GameUI
+from ui_console.ui_console import UIConsole
+
+if ui_type == "kivy":
+    from ui_game.game_ui import GameUI
 
 
 @dataclass
@@ -19,10 +25,19 @@ class Runtime(IRuntime):
     """
 
     def __init__(self,  game_data: GameData, game_progress: GameProgress):
-        self.ui = GameUI(self)
-        self.game_data = game_data
-        self.game_progress = game_progress
-        self.ui.run()
+        if ui_type == "kivy":
+            self.ui = GameUI(self)
+            self.game_data = game_data
+            self.game_progress = game_progress
+            self.ui.run()
+
+        if ui_type == "console":
+            self.ui = UIConsole(self)
+            self.game_data = game_data
+            self.game_progress = game_progress
+            self.update_ui()
+
+    # =============== CONTROLS ===============
 
     def start_game(self):
         return
@@ -30,26 +45,67 @@ class Runtime(IRuntime):
     def update_ui(self):
         self.ui.rerender()
 
+    def reset_game(self):
+        self.game_progress = GameProgress.create_default_progress(
+            self.game_data)
+        self.update_ui()
+
+    # =============== GET ===============
+
     def get_current_location(self) -> Location:
         current_location = self.game_data.get_location_by_id(
             self.game_progress.location_id)
         return current_location
 
-    def get_available_exits(self) -> Dict[str, Exit]:
+    def get_available_exits(self) -> Dict[str, LocationExit]:
         current_location = self.get_current_location()
         available_exits = current_location.exits
         return available_exits
 
+    def get_available_quest_stages(self) -> List[QuestStage]:
+        current_location_id = self.game_progress.location_id
+        available_quest_stages = []
+
+        for quest in self.game_data.quests.values():
+            current_stage_id = quest.start_stage_id
+            if self.game_progress.quests.get(quest.id):
+                current_stage_id = self.game_progress.quests[quest.id].stage_id
+
+            if quest.stages[current_stage_id].location_id == current_location_id:
+                available_quest_stages.append(quest.stages[current_stage_id])
+
+        return available_quest_stages
+
     def get_message(self) -> str | None:
         return self.game_progress.message
+
+    # =============== SELECT ===============
 
     def select_exit(self, exit_key: str):
         available_exits = self.get_available_exits()
 
         if exit_key not in available_exits.keys():
-            self.game_progress.message = "There is no exit: " + exit_key
+            self.game_progress.message = "Invalid exit selected: " + exit_key
         else:
             self.game_progress.message = None
             self.game_progress.location_id = available_exits[exit_key].location_id
+
+        self.update_ui()
+
+    def select_quest_stage_option(self, quest_id: str, stage_id: str, option_id: str):
+        try:
+            option = self.game_data.quests[quest_id].stages[stage_id].options[option_id]
+
+            if self.game_progress.quests.get(quest_id) is None:
+                self.game_progress.quests[quest_id] = QuestProgress(
+                    option.next_stage_id)
+            else:
+                self.game_progress.quests[quest_id].stage_id = option.next_stage_id
+
+            self.game_progress.message = option.response_message
+
+        except (KeyError, IndexError):
+            self.game_progress.message = (f"Invalid option selected: "
+                                          f"Quest={quest_id} Stage={stage_id} Option={option_id}")
 
         self.update_ui()

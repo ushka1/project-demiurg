@@ -2,10 +2,13 @@ import json
 import os
 from typing import Tuple
 
+from config.globals import ui_type
 from models.game_data import GameData
 from models.game_progress import GameProgress
 from runtime.runtime import Runtime
-from ui_library.library_ui import LibraryUI
+
+if ui_type == "kivy":
+    from ui_library.library_ui import LibraryUI
 
 
 class Library:
@@ -15,8 +18,9 @@ class Library:
         "../../games")
 
     def __init__(self):
-        self.ui = LibraryUI(self)
-        self.ui.run()
+        if ui_type == "kivy":
+            self.ui = LibraryUI(self)
+            self.ui.run()
 
     def load_game(self, game_name: str) -> Tuple[GameData, GameProgress]:
         """
@@ -28,8 +32,7 @@ class Library:
         try:
             game_progress = self._load_game_progress(game_name)
         except IOError:
-            game_progress = GameProgress(
-                location_id=game_data.map.start_location_id)
+            game_progress = GameProgress.create_default_progress(game_data)
 
         return game_data, game_progress
 
@@ -54,7 +57,7 @@ class Library:
         game_progress_path = os.path.join(
             self.games_folder,
             game_name,
-            "game-state.json")
+            "game-progress.json")
 
         with open(game_progress_path) as f:
             json_data = json.load(f)

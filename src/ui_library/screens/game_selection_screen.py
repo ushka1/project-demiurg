@@ -18,7 +18,7 @@ class GameSelectionScreen(MDScreen):
         self.app = App.get_running_app()
 
     def on_enter(self, *args):
-        self.add_game_cards()
+        self.reload_games()
 
     def add_game_cards(self):
         games = self.app.get_available_games()
@@ -31,7 +31,11 @@ class GameSelectionScreen(MDScreen):
         pass
 
     def reload_games(self):
+        to_remove = []
         for child in self.ids.stack.children:
-            self.ids.stack.remove_widget(child)
+            to_remove.append(child)
+
+        for card in to_remove:
+            self.ids.stack.remove_widget(card)
 
         self.add_game_cards()

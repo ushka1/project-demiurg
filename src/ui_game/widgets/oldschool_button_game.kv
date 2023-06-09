@@ -1,0 +1,16 @@
+<OldschoolButtonGame>:
+    size_hint: None, None
+    md_bg_color: 0, 0, 0, 0
+    size: image.texture_size
+
+    RelativeLayout:
+        Image:
+            source: "ui_assets/buttons/oldschool_black.png"
+            id: image
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Label:
+            text: root.text
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            font_size: dp(20)
+            font_name: "Source_code_pro_bold"

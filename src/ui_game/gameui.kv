@@ -9,9 +9,9 @@ MDNavigationLayout:
 
     MDNavigationDrawer:
         id: nav_drawer
-        ContentNavigationDrawer:
+        ContentNavigationDrawerGame:
 
-<ContentNavigationDrawer@RelativeLayout>:
+<ContentNavigationDrawerGame@RelativeLayout>:
     canvas.before:
         Color:
             rgba: rgba("#1E232E")
@@ -19,25 +19,19 @@ MDNavigationLayout:
             pos: self.pos
             size: self.size
 
-    NavigationButton:
-        text: "New project"
+    NavigationButtonGame:
+        text: "Menu"
         pos_hint: {"x": 0.3, "center_y": 0.8}
-        on_press: app.root.ids.screen_manager.current = "creator"; app.root.ids.nav_drawer.set_state("close")
+        on_press: app.root.ids.screen_manager.current = "main"; app.root.ids.nav_drawer.set_state("close")
 
-    NavigationButton:
-        text: "Import"
+    NavigationButtonGame:
+        text: "Quit"
         pos_hint: {"x": 0.3, "center_y": 0.7}
-
-    NavigationButton:
-        text: "Export"
-        pos_hint: {"x": 0.3, "center_y": 0.6}
-
-    NavigationButton:
-        text: "Delete all"
-        pos_hint: {"x": 0.3, "center_y": 0.5}
+        on_press: app.quit()
 
 
-<NavigationButton@MDCard>:
+
+<NavigationButtonGame@MDCard>:
     size_hint: None, None
     size: dp(150), dp(100)
     md_bg_color: rgba("#1E232E")

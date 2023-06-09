@@ -1,11 +1,17 @@
+from config.globals import ui_type
 from library.library import Library
 
-# from runtime.runtime import Runtime
+if ui_type == "kivy":
+    library = Library()
 
-library = Library()
-# game_data, game_progress = library.load_game("mighty-roomba")
 
-# runtime = Runtime(game_data, game_progress)
-# runtime.start_game()
+if ui_type == "console":
+    from runtime.runtime import Runtime
 
-# print("\nThanks for playing!")
+    library = Library()
+    game_data, game_progress = library.load_game("mighty-roomba")
+
+    runtime = Runtime(game_data, game_progress)
+    runtime.start_game()
+
+    print("\nThanks for playing!")

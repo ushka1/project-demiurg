@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import Dict
+from typing import Dict, List
 
-from models.game_data import Exit, Location
+from models.map import Location, LocationExit
+from models.quests import QuestStage
 
 
 class IRuntime(ABC):
@@ -11,11 +12,19 @@ class IRuntime(ABC):
     """
 
     @abstractmethod
+    def reset_game(self) -> None:
+        pass
+
+    @abstractmethod
     def get_current_location(self) -> Location:
         pass
 
     @abstractmethod
-    def get_available_exits(self) -> Dict[str, Exit]:
+    def get_available_exits(self) -> Dict[str, LocationExit]:
+        pass
+
+    @abstractmethod
+    def get_available_quest_stages(self) -> List[QuestStage]:
         pass
 
     @abstractmethod
@@ -23,5 +32,9 @@ class IRuntime(ABC):
         pass
 
     @abstractmethod
-    def select_exit(self, exit_id: str):
+    def select_exit(self, exit_id: str) -> None:
+        pass
+
+    @abstractmethod
+    def select_quest_stage_option(self, quest_id: str, stage_id: str, option_id: str) -> None:
         pass

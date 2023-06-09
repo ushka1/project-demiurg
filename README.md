@@ -66,6 +66,26 @@ Game data file contains all the information about the game itself such as metada
         "is_end_location?": true
       }
     }
+  },
+  "quests": {
+    "<quest id>": {
+      "name": "<quest name>",
+      "description": "<quest description>",
+      "start_stage_id": "<stage id>",
+      "stages": {
+        "<stage id>": {
+          "location_id": "<location id>",
+          "text": "<stage text>",
+          "options": {
+            "<option id>": {
+              "text": "<option text>",
+              "next_stage_id": "<stage id>",
+              "response_message?": "<response message>"
+            }
+          }
+        }
+      }
+    }
   }
 }
 ```
@@ -77,15 +97,16 @@ Game progress file contains information about the current state of the game such
 ```json
 {
   "location_id": "<location id>",
+  "quests": {
+    "<quest id>": {
+      "stage_id": "<stage id>"
+    }
+  },
   "message?": "<message>"
 }
 ```
 
 ## To Do
 
-- UI
 - Progress saving
 - Interactions, tasks, conditions
-- Items, inventroy
-- Multiple endings (good, bad, ...)
-- Profile selection

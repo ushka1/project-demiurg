@@ -28,12 +28,6 @@ class GameUI(MDApp):
         super().__init__(**kwargs)
         self.runtime = runtime
 
-        LabelBase.register(name='Monoton', fn_regular='ui_game/assets/Monoton-Regular.ttf')
-        LabelBase.register(name='Nunito', fn_regular='ui_game/assets/Nunito-VariableFont_wght.ttf')
-        LabelBase.register(name='Nunito_bold', fn_regular='ui_game/assets/Nunito-Bold.ttf')
-        LabelBase.register(name='Source_code_pro', fn_regular='ui_game/assets/SourceCodePro.ttf')
-        LabelBase.register(name='Source_code_pro_bold', fn_regular='ui_game/assets/SourceCodePro-Bold.ttf')
-
         Window.fullscreen = 'auto'
 
     def on_start(self):
@@ -43,8 +37,6 @@ class GameUI(MDApp):
         # self.rerender()
 
     def hook_keyboard(self, window, key, *largs):
-        print(key)
-
         self.screen_manager.current_screen.handle_keyboard(key)
 
         return True
@@ -60,6 +52,10 @@ class GameUI(MDApp):
     def get_available_games(self) -> list:
         return self.runtime.get_available_games()
 
+    def restart_game(self):
+        # TODO: call runtime's function to restart game
+        pass
 
-class NavigationButton(MDCard):
+
+class NavigationButtonGame(MDCard):
     text = StringProperty()

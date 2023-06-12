@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Dict, List
 
 from config.globals import ui_type
+from library.i_library import ILibrary
 from models.game_data import GameData
 from models.game_progress import GameProgress, QuestProgress
 from models.map import Location, LocationExit
@@ -24,7 +25,9 @@ class Runtime(IRuntime):
     to handle user actions (e.g. select_exit).
     """
 
-    def __init__(self,  game_data: GameData, game_progress: GameProgress):
+    def __init__(self,  game_data: GameData, game_progress: GameProgress, library: ILibrary):
+        self.library = library
+
         if ui_type == "kivy":
             self.ui = GameUI(self)
             self.game_data = game_data
@@ -39,16 +42,26 @@ class Runtime(IRuntime):
 
     # =============== CONTROLS ===============
 
-    def start_game(self):
-        return
-
     def update_ui(self):
         self.ui.rerender()
+
+    def save_game(self):
+        self.library.save_game_progress(
+            self.game_data.metadata.title, self.game_progress)
 
     def reset_game(self):
         self.game_progress = GameProgress.create_default_progress(
             self.game_data)
+        self.save_game()
         self.update_ui()
+
+    # =============== PLAYER ===============
+
+    def set_player_name(self, name: str):
+        self.game_progress.player_name = name
+
+    def get_player_name(self) -> str:
+        return self.game_progress.player_name
 
     # =============== GET ===============
 

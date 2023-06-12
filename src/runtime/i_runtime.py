@@ -11,9 +11,27 @@ class IRuntime(ABC):
     communicate with the runtime.
     """
 
+    # =============== CONTROLS ===============
+
+    @abstractmethod
+    def save_game(self) -> None:
+        pass
+
     @abstractmethod
     def reset_game(self) -> None:
         pass
+
+    # =============== PLAYER ===============
+
+    @abstractmethod
+    def set_player_name(self, name: str) -> None:
+        pass
+
+    @abstractmethod
+    def get_player_name(self) -> str:
+        pass
+
+    # =============== GET ===============
 
     @abstractmethod
     def get_current_location(self) -> Location:
@@ -30,6 +48,8 @@ class IRuntime(ABC):
     @abstractmethod
     def get_message(self) -> str | None:
         pass
+
+    # =============== SELECT ===============
 
     @abstractmethod
     def select_exit(self, exit_id: str) -> None:

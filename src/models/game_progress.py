@@ -19,6 +19,7 @@ class GameProgress:
     location_id: str
     quests: Dict[str, QuestProgress] = field(default_factory=dict)
     message: str | None = None
+    player_name: str | None = None
 
     def __post_init__(self):
         print(self.quests)

@@ -3,6 +3,7 @@ import os
 from typing import Tuple
 
 from config.globals import ui_type
+from library.i_library import ILibrary
 from models.game_data import GameData
 from models.game_progress import GameProgress
 from runtime.runtime import Runtime
@@ -11,7 +12,7 @@ if ui_type == "kivy":
     from ui_library.library_ui import LibraryUI
 
 
-class Library:
+class Library(ILibrary):
     current_folder = os.path.dirname(os.path.abspath(__file__))
     games_folder = os.path.join(
         current_folder,
@@ -21,6 +22,17 @@ class Library:
         if ui_type == "kivy":
             self.ui = LibraryUI(self)
             self.ui.run()
+
+    # =============== LOADING ===============
+
+    def run_game(self, game):
+        """
+        Run the game with the given name.
+        """
+        game_data, game_progress = self.load_game(game)
+        self.ui.stop()
+
+        self.runtime = Runtime(game_data, game_progress, self)
 
     def load_game(self, game_name: str) -> Tuple[GameData, GameProgress]:
         """
@@ -64,6 +76,24 @@ class Library:
 
         return GameProgress(**json_data)
 
+    def save_game_progress(self, game_name: str, game_progress: GameProgress) -> None:
+        """
+        Save the game progress to the game-progress.json file in appropriate directory.
+        """
+        game_progress_path = os.path.join(
+            self.games_folder,
+            game_name,
+            "game-progress.json")
+
+        json_object = json.dumps(
+            game_progress, default=lambda o: o.__dict__, indent=2)
+        json.dumps("")
+
+        with open(game_progress_path, "w") as outfile:
+            outfile.write(json_object)
+
+    # =============== GAME MANAGEMENT ===============
+
     def get_available_games(self):
         """
         Get a list of all available games.
@@ -104,13 +134,3 @@ class Library:
             outfile.write(json_object)
 
         return True
-
-    def run_game(self, game):
-        """
-        Run the game with the given name.
-        """
-        game_data, game_progress = self.load_game(game)
-        self.ui.stop()
-
-        runtime = Runtime(game_data, game_progress)
-        runtime.start_game()

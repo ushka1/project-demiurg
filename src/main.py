@@ -9,9 +9,8 @@ if ui_type == "console":
     from runtime.runtime import Runtime
 
     library = Library()
-    game_data, game_progress = library.load_game("mighty-roomba")
+    game_data, game_progress = library.load_game("Mighty Roomba")
 
-    runtime = Runtime(game_data, game_progress)
-    runtime.start_game()
+    runtime = Runtime(game_data, game_progress, library)
 
     print("\nThanks for playing!")

@@ -53,8 +53,7 @@ class GameUI(MDApp):
         return self.runtime.get_available_games()
 
     def restart_game(self):
-        # TODO: call runtime's function to restart game
-        pass
+        return self.runtime.reset_game()
 
 
 class NavigationButtonGame(MDCard):

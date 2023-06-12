@@ -67,6 +67,9 @@ class UIConsole:
             if choice == "RESET":
                 return self.runtime.reset_game()
 
+            if choice == "SAVE":
+                return self.runtime.save_game()
+
             if choice.startswith("E"):
                 exit_id = choice.split(" ")[1]
                 return self.runtime.select_exit(exit_id)

@@ -1,5 +1,9 @@
 # Project Demiurg
 
+Project Demiurg is an interactive game creation platform that allows users to design and play their own text-based adventure games. With Demiurg, you can unleash your creativity and build captivating game worlds filled with quests, dialogues, and immersive environments.
+
+This repository contains code for the Demiurg app that is used to play games. If you're searching for app that is used to create games then check out [Demiurg_Creator](https://github.com/Lightios/Demiurg_Creator).
+
 ## Setup
 
 ### Requirements
@@ -16,6 +20,15 @@
 1. Install all required packages using `pip install -r requirements.txt`.
 1. Run `src/main.py`.
 
+### Mode
+
+Application can be run in two different modes.
+
+- Kivy UI - default mode, used for playing games.
+- Console UI - development mode, used for working on the application.
+
+Mode can be changed using environment variable in `src/config/globals.py` file.
+
 ## JSON Schemas
 
 Every game is stored in a directory with the same name as the game title in the `/games` directory. Directory of a game contains the game data file and the (optional) game progress file.
@@ -23,10 +36,6 @@ Every game is stored in a directory with the same name as the game title in the 
 Both of these files must be in a specific format that is shown below.
 
 Properties with `?` sign are optional.
-
-### Creator app
-
-App that is used to create games is located at [Demiurg_Creator](https://github.com/Lightios/Demiurg_Creator). It is a Kivy app that allows you to create a game-data.json file.
 
 ### game-data.json
 
@@ -96,6 +105,7 @@ Game progress file contains information about the current state of the game such
 
 ```json
 {
+  "player_name": "<player name>",
   "location_id": "<location id>",
   "quests": {
     "<quest id>": {
@@ -105,8 +115,3 @@ Game progress file contains information about the current state of the game such
   "message?": "<message>"
 }
 ```
-
-## To Do
-
-- Progress saving
-- Interactions, tasks, conditions

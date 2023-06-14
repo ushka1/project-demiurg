@@ -2,6 +2,7 @@
     size_hint: 1, None
     height: dp(100)
     md_bg_color: 1, 1, 1, 0.05
+    on_press: self.show_dialog()
 
     RelativeLayout:
         MDLabel:
@@ -41,6 +42,3 @@
             pos_hint: {"center_x": 0.05, "center_y": 0.6}
             font_size: dp(20)
 
-        Button:
-            background_color: 0, 0, 0, 0
-            on_press: app.run_game(root.game_title)

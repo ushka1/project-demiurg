@@ -25,14 +25,14 @@ class Library(ILibrary):
 
     # =============== LOADING ===============
 
-    def run_game(self, game):
+    def run_game(self, game, force_reset: bool = False):
         """
         Run the game with the given name.
         """
         game_data, game_progress = self.load_game(game)
         self.ui.stop()
 
-        self.runtime = Runtime(game_data, game_progress, self)
+        self.runtime = Runtime(game_data, game_progress, self, force_reset)
 
     def load_game(self, game_name: str) -> Tuple[GameData, GameProgress]:
         """
@@ -134,3 +134,17 @@ class Library(ILibrary):
             outfile.write(json_object)
 
         return True
+
+    def get_game_details(self, game_name: str):
+        game_data_path = os.path.join(
+            self.games_folder,
+            game_name,
+            "game-data.json")
+
+        with open(game_data_path) as f:
+            json_data = json.load(f)
+
+        return {
+            "author": json_data["metadata"]["author"],
+            "description": json_data["metadata"]["description"],
+        }

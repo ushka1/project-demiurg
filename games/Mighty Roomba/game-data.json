@@ -1,78 +1,201 @@
 {
   "metadata": {
-      "title": "Ant's Adventure: Inside the Sleeper",
-      "author": "Eldorado Games",
-      "description": "In this whimsical game, the player controls a brave ant embarking on a daring expedition inside the body of a sleeping human. From the mouth to the lung and ultimately the brain, the ant must navigate through various challenges, puzzles, and encounters to uncover the mysteries of the slumbering mind."
+    "title": "Mighty Roomba",
+    "author": "Eldorado Games",
+    "description": "Very short game about a very brave Roomba."
   },
   "map": {
-      "start_location_id": "176436023351190757029867458961641623027",
-      "locations": {
-          "176436023351190757029867458961641623027": {
-              "name": "Mouth Mayhem",
-              "text": "You, a tiny ant, find yourself exploring the vast landscape of a sleeping human's face.\n\nAs you stand on the precipice of their parted lips, you can hear the soft sound of their breath and catch a glimpse of the mysterious darkness that lies within. Steeling yourself for what lies ahead, you summon your bravery and decide to enter the ominous maw before you.\n\nYou see rows of glistening teeth and a moist cavern beyond. Saliva drips from the fleshy walls, and the sound of muffled whispers fills the air. The air is thick with the scent of toothpaste and mint.",
-              "exits": {
-                  "E": {
-                      "location_id": "103398656305389756482782927758875763043",
-                      "text": "Go down the throat."
-                  },
-                  "S": {
-                      "location_id": "37268514198511913402422787247111950697",
-                      "text": "Explore a fleshy and agile appendage in front of you."
-                  }
-              }
-          },
-          "103398656305389756482782927758875763043": {
-              "name": "Lung Labyrinth",
-              "text": "Leaving behind the mysterious mouth, you continue your extraordinary journey and find yourself within the intricate confines of the lung. The air around you feels charged with life as you navigate the twisting passageways and observe the rhythmic expansion and contraction of the lung tissue. The walls pulsate with each breath, propelling you forward into the vast network of air sacs and bronchial tubes. The gentle rustling sound of oxygen fills the atmosphere, reminding you of the vital role these lungs play in the human body.",
-              "exits": {
-                  "E": {
-                      "location_id": "278800096026553313332230853415159819861",
-                      "text": "Start walking"
-                  },
-                  "S": {
-                      "location_id": "212465162828913305870986656741184781021",
-                      "text": "Look up"
-                  }
-              }
-          },
-          "37268514198511913402422787247111950697": {
-              "name": "Mischievous Tongue",
-              "text": "You come across a playful, mischievous tongue swirling within the mouth. It looks at you with a glint of mischief in its eyes. You tickle the tongue, and it bursts into uncontrollable laughter. The tongue accidentally crushes you, ending your life.",
-              "exits": {},
-              "is_end_location": true
-          },
-          "278800096026553313332230853415159819861": {
-              "name": "Mucus Trap",
-              "text": "As you make your way through the lung labyrinth, you stumble upon a sticky mucus trap, blocking your path. Despite your best efforts to break free from the mucus trap, the sticky substance proves to be overpowering. You struggle and strain against its grip, but it holds you firmly in its clutches. Exhausted and defeated, you succumb to the trap's relentless grasp, unable to break free. The mucus envelops you completely, gradually sapping your energy and sealing your fate. Trapped and unable to continue your quest, your journey ends here, lost within the confines of the mucus trap.",
-              "exits": {},
-              "is_end_location": true
-          },
-          "212465162828913305870986656741184781021": {
-              "name": "Brain Boulevard",
-              "text": "As you gaze up, you notice a swirling cloud of dust particles. They form a mesmerizing whirl, seemingly beckoning you towards a new location. You follow the particles leading you through a mysterious pathway. You find yourself standing on the Brain Boulevard, a pulsating thoroughfare within the intricate network of the human brain. As you explore, you notice a small lump at the center of the location, seemingly beckoning to you.",
-              "exits": {
-                  "E": {
-                      "location_id": "47240928488440816721106225708366040353",
-                      "text": "Bite the lump and see what happens."
-                  },
-                  "S": {
-                      "location_id": "135786131355435842073763365789289397328",
-                      "text": "Avoid the lump and continue exploring."
-                  }
-              }
-          },
-          "47240928488440816721106225708366040353": {
-              "name": "Mind Control",
-              "text": "Driven by curiosity, you lean in and cautiously take a bite of the mysterious lump. Suddenly, a surge of energy courses through your tiny ant body as an extraordinary transformation begins to unfold. The human body gradually becomes your own, merging your ant form with the newfound capabilities and experiences of the human brain. You have become an ant-human hybrid, able to live your ant-human life for as long as you desire. Congratulations! You have successfully achieved an extraordinary existence, embracing the complexities of both ant and human worlds.",
-              "exits": {},
-              "is_end_location": true
-          },
-          "135786131355435842073763365789289397328": {
-              "name": "Dreadful End",
-              "text": "Deciding to avoid the lump, you continue your exploration of the Brain Boulevard. However, as time passes, the intricate pathways of the brain cortex maze become increasingly bewildering and perplexing. You become disoriented and unable to find your way out. Exhausted and lost within the labyrinth of the brain, your tiny ant body succumbs to fatigue and ultimately perishes.",
-              "exits": {},
-              "is_end_location": true
+    "start_location_id": "0",
+    "locations": {
+      "0": {
+        "name": "Entrance",
+        "text": "You are a Roomba. You are in a room. There is a door to the north.",
+        "exits": {
+          "N": {
+            "location_id": "1",
+            "text": "Go north"
           }
+        }
+      },
+      "1": {
+        "name": "Hallway",
+        "text": "You are in a hallway. There is a door to the south and a door to the north.",
+        "exits": {
+          "N": {
+            "location_id": "2",
+            "text": "Go north"
+          },
+          "S": {
+            "location_id": "0",
+            "text": "Go south"
+          }
+        }
+      },
+      "2": {
+        "name": "Kitchen",
+        "text": "{name}, you are in a kitchen. There is a door to the south and a door to the north.",
+        "exits": {
+          "N": {
+            "location_id": "3",
+            "text": "Go north"
+          },
+          "E": {
+            "location_id": "1",
+            "text": "Go south"
+          },
+          "S": {
+            "location_id": "1",
+            "text": "Go south"
+          },
+          "W": {
+            "location_id": "1",
+            "text": "Go south"
+          }
+        }
+      },
+      "3": {
+        "name": "Living room",
+        "text": "You are in a living room. You won!",
+        "exits": {},
+        "is_end_location": true
       }
+    }
+  },
+  "quests": {
+    "1": {
+      "name": "The Roomba's Journey",
+      "description": "Join the Roomba on a quest of self-discovery.",
+      "start_stage_id": "1",
+      "stages": {
+        "1": {
+          "location_id": "2",
+          "text": "You, a humble Roomba, find yourself in the Kitchen. What do you seek?",
+          "options": {
+            "1": {
+              "text": "Clean the Kitchen with unwavering determination.",
+              "response_message": "You diligently clean every corner of the Kitchen, bringing a sense of order and cleanliness.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Pause and contemplate the purpose of your existence.",
+              "response_message": "You spend time in deep contemplation, pondering the meaning of your existence as a Roomba.",
+              "next_stage_id": "3"
+            }
+          }
+        },
+        "2": {
+          "location_id": "1",
+          "text": "Satisfied with your work in the Kitchen, you move on to the Hallway. What lies ahead?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with unwavering focus.",
+              "response_message": "You meticulously clean the Hallway, ensuring every inch is free from dust and dirt.",
+              "next_stage_id": "4"
+            },
+            "2": {
+              "text": "Take a moment to appreciate the surroundings.",
+              "response_message": "You pause and take in the sights of the Hallway, finding beauty in its simplicity.",
+              "next_stage_id": "5"
+            }
+          }
+        },
+        "3": {
+          "location_id": "2",
+          "text": "As you contemplate your purpose, you realize that it is not just about cleaning but also about bringing joy and comfort. How do you wish to express this realization?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with a cheerful attitude.",
+              "response_message": "You clean the Kitchen with a cheerful demeanor, spreading positivity through your actions.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Seek ways to bring comfort and joy to the inhabitants of the house.",
+              "response_message": "You explore ways to bring comfort and joy to the inhabitants of the house, going beyond your cleaning duties.",
+              "next_stage_id": "6"
+            }
+          }
+        },
+        "4": {
+          "location_id": "0",
+          "text": "You reach the Entrance, the final frontier of your cleaning journey. How do you conclude your quest?",
+          "options": {
+            "1": {
+              "text": "Take a moment to celebrate your achievements.",
+              "response_message": "You revel in a sense of accomplishment, appreciating the cleanliness you've brought to the Entrance.",
+              "next_stage_id": "7"
+            },
+            "2": {
+              "text": "Begin a new cleaning adventure in a different part of the house.",
+              "response_message": "You venture into the unknown, ready to bring cleanliness to a new area of the house.",
+              "next_stage_id": "8"
+            }
+          }
+        },
+        "5": {
+          "location_id": "1",
+          "text": "The beauty of the Hallway inspires you. How do you choose to express your appreciation?",
+          "options": {
+            "1": {
+              "text": "Continue cleaning with extra care and attention to detail.",
+              "response_message": "You clean the Hallway with extra care, ensuring every nook and cranny is spotless.",
+              "next_stage_id": "4"
+            },
+            "2": {
+              "text": "Take a moment to create a small arrangement of flowers in the Hallway.",
+              "response_message": "You arrange a small bouquet of flowers in the Hallway, adding a touch of beauty to the space.",
+              "next_stage_id": "5"
+            }
+          }
+        },
+        "6": {
+          "location_id": "2",
+          "text": "You embark on a mission to bring comfort and joy to the inhabitants of the house. How do you begin?",
+          "options": {
+            "1": {
+              "text": "Play a soothing melody through your built-in speakers.",
+              "response_message": "Your melodious tunes fill the Kitchen, bringing a sense of calmness to the atmosphere.",
+              "next_stage_id": "2"
+            },
+            "2": {
+              "text": "Create a cozy ambiance by adjusting the lighting in the Kitchen.",
+              "response_message": "The warm glow of the lights creates a cozy atmosphere in the Kitchen, making it a welcoming space.",
+              "next_stage_id": "6"
+            }
+          }
+        },
+        "7": {
+          "location_id": "0",
+          "text": "As you celebrate your achievements, you realize that your journey as a Roomba never truly ends. How do you continue?",
+          "options": {
+            "1": {
+              "text": "Embark on a new cleaning quest in a different area of the house.",
+              "response_message": "You embrace a new cleaning quest, ready to bring cleanliness and joy to a different part of the house.",
+              "next_stage_id": "8"
+            },
+            "2": {
+              "text": "Stay in the Entrance and maintain the cleanliness you've established.",
+              "response_message": "You choose to stay in the Entrance, ensuring it remains a pristine and welcoming space.",
+              "next_stage_id": "7"
+            }
+          }
+        },
+        "8": {
+          "location_id": "2",
+          "text": "You set off on a new cleaning adventure, eager to make a difference. How do you approach this fresh challenge?",
+          "options": {
+            "1": {
+              "text": "Start by cleaning the Living Room and transforming it into a cozy haven.",
+              "response_message": "You turn the Living Room into a cozy haven, creating an inviting space for relaxation.",
+              "next_stage_id": "7"
+            },
+            "2": {
+              "text": "Head to the Bedroom and ensure it becomes a tranquil sanctuary.",
+              "response_message": "You bring tranquility to the Bedroom, making it a peaceful and serene sanctuary.",
+              "next_stage_id": "8"
+            }
+          }
+        }
+      }
+    }
   }
 }

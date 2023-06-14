@@ -4,8 +4,7 @@ MDNavigationLayout:
 
         GameScreen:
             name: "game"
-#        CreatorScreen:
-#            name: "creator"
+            id: game_screen
 
     MDNavigationDrawer:
         id: nav_drawer
@@ -20,16 +19,14 @@ MDNavigationLayout:
             size: self.size
 
     NavigationButtonGame:
-        text: "Menu"
+        text: "Save game"
         pos_hint: {"x": 0.3, "center_y": 0.8}
-        on_press: app.root.ids.screen_manager.current = "main"; app.root.ids.nav_drawer.set_state("close")
+        on_press: app.save_game()
 
     NavigationButtonGame:
         text: "Quit"
         pos_hint: {"x": 0.3, "center_y": 0.7}
-        on_press: app.quit()
-
-
+        on_press: app.stop()
 
 <NavigationButtonGame@MDCard>:
     size_hint: None, None

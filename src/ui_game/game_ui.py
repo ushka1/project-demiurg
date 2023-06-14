@@ -53,7 +53,11 @@ class GameUI(MDApp):
         return self.runtime.get_available_games()
 
     def restart_game(self):
-        return self.runtime.reset_game()
+        self.runtime.reset_game()
+        self.root.ids.game_screen.set_name()
+
+    def save_game(self):
+        self.runtime.save_game()
 
 
 class NavigationButtonGame(MDCard):

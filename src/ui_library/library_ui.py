@@ -37,8 +37,8 @@ class LibraryUI(MDApp):
     def get_available_games(self) -> list:
         return self.library.get_available_games()
 
-    def run_game(self, game: str):
-        self.library.run_game(game)
+    def run_game(self, game: str, force_reset: bool = False):
+        self.library.run_game(game, force_reset)
 
     def add_new_game(self):
         path = filechooser.open_file(title="Select save location", filters=[(".json", "*.json")])

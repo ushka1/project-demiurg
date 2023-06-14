@@ -12,16 +12,11 @@
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
     OldschoolButtonLibrary:
-        pos_hint: {"center_x": 0.25, "center_y": 0.1}
+        pos_hint: {"center_x": 0.33, "center_y": 0.1}
         on_release: app.root.ids.screen_manager.current = "game_selection"
-        text: "New game"
+        text: "Start"
 
     OldschoolButtonLibrary:
-        pos_hint: {"center_x": 0.5, "center_y": 0.1}
-        on_release: print("Load game")
-        text: "Load game"
-
-    OldschoolButtonLibrary:
-        pos_hint: {"center_x": 0.75, "center_y": 0.1}
+        pos_hint: {"center_x": 0.66, "center_y": 0.1}
         on_release: app.quit()
         text: "Quit"

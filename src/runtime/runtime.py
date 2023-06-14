@@ -25,13 +25,18 @@ class Runtime(IRuntime):
     to handle user actions (e.g. select_exit).
     """
 
-    def __init__(self,  game_data: GameData, game_progress: GameProgress, library: ILibrary):
+    def __init__(self,  game_data: GameData, game_progress: GameProgress, library: ILibrary, force_reset: bool = False):
         self.library = library
 
         if ui_type == "kivy":
             self.ui = GameUI(self)
             self.game_data = game_data
-            self.game_progress = game_progress
+
+            if force_reset:
+                self.game_progress = GameProgress.create_default_progress(self.game_data)
+            else:
+                self.game_progress = game_progress
+
             self.ui.run()
 
         if ui_type == "console":

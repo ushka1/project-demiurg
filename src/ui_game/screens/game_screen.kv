@@ -50,12 +50,13 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.84}
             text: "Character name"
             font_size: dp(20)
+            id: player_name
 
-        Label:
-            font_name: "Source_code_pro"
-            pos_hint: {"center_x": 0.5, "center_y": 0.74}
-            text: "Level 1"
-            font_size: dp(20)
+#        Label:
+#            font_name: "Source_code_pro"
+#            pos_hint: {"center_x": 0.5, "center_y": 0.74}
+#            text: "Level 1"
+#            font_size: dp(20)
 
     FloatLayout:
         id: right_panel
@@ -79,29 +80,16 @@
             font_size: dp(20)
             halign: "left"
 
-        InputLabel:
-            id: N
-            pos_hint: {"x": 0.1, "top": 0.5}
-            text: "north"
-            direction: "N"
+        ScrollView:
+            pos_hint: {"x": 0.1, "y": 0.15}
+            size_hint: 0.6, 0.3
+            id: scroll_stack
 
-        InputLabel:
-            id: E
-            pos_hint: {"x": 0.1, "top": 0.4}
-            text: "east"
-            direction: "E"
-
-        InputLabel:
-            id: S
-            pos_hint: {"x": 0.1, "top": 0.3}
-            text: "south"
-            direction: "S"
-
-        InputLabel:
-            id: W
-            pos_hint: {"x": 0.1, "top": 0.2}
-            text: "west"
-            direction: "W"
+            BoxLayout:
+                orientation: "vertical"
+                id: stack
+                size_hint_y: None
+                height: self.minimum_height
 
         OldschoolButtonGame:
             text: "Restart game"

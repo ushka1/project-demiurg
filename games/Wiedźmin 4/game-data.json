@@ -1,0 +1,186 @@
+{
+    "metadata": {
+        "title": "Wied\u017amin 4",
+        "author": "Demiurg Team",
+        "description": "Najd\u0142u\u017cej wyczekiwana gra w\u015br\u00f3d Polak\u00f3w od 2015 roku. Wciel si\u0119 w wied\u017amina i przemierzaj szlak, stawiaj\u0105c czo\u0142a nieznanym niebezpiecze\u0144stwom."
+    },
+    "map": {
+        "start_location_id": "125403136121479665221961936665761737036",
+        "locations": {
+            "140935830279055016557499613054814329795": {
+                "name": "Kwatera stra\u017cnik\u00f3w",
+                "text": "Kwatera, w kt\u00f3rej przebywaj\u0105 miejscy stra\u017cnicy",
+                "exits": {
+                    "E": {
+                        "location_id": "130030942572948726202711001655226261815",
+                        "text": "Wyjd\u017a z kwatery"
+                    }
+                }
+            },
+            "130030942572948726202711001655226261815": {
+                "name": "Centrum Wyzimy",
+                "text": "Znajdujesz si\u0119 w samym \u015brodku Wyzimy",
+                "exits": {
+                    "E": {
+                        "location_id": "125403136121479665221961936665761737036",
+                        "text": "Wyjd\u017a przez bram\u0119"
+                    },
+                    "W": {
+                        "location_id": "140935830279055016557499613054814329795",
+                        "text": "Wejd\u017a do kwatery stra\u017cnik\u00f3w"
+                    }
+                }
+            },
+            "125403136121479665221961936665761737036": {
+                "name": "Brama Wyzimy",
+                "text": "Znajdujesz si\u0119 przed wyzimsk\u0105 bram\u0105.",
+                "exits": {
+                    "N": {
+                        "location_id": "271077546473071744576297381658310636160",
+                        "text": "Udaj si\u0119 na bagna"
+                    },
+                    "S": {
+                        "location_id": "76703303004571886873979523589785304351",
+                        "text": "Id\u017a w g\u00f3ry"
+                    },
+                    "W": {
+                        "location_id": "130030942572948726202711001655226261815",
+                        "text": "Wejd\u017a do miasta"
+                    }
+                }
+            },
+            "259822976435380947914593591050732557091": {
+                "name": "Cmentarz",
+                "text": "Jest p\u00f3\u0142noc. Stajesz przed cmentarzem. Drog\u0119 za Tob\u0105 zastawi\u0142y wampiry. Mo\u017cesz jedynie i\u015b\u0107 w g\u0142\u0105b cmentarza.",
+                "exits": {
+                    "S": {
+                        "location_id": "30861158792428551472695364121347444378",
+                        "text": "Id\u017a dalej"
+                    }
+                }
+            },
+            "76703303004571886873979523589785304351": {
+                "name": "G\u00f3ry",
+                "text": "\u015acie\u017cka rodziela si\u0119 na dwie drogi. Kt\u00f3r\u0105 z nich wybierzesz?",
+                "exits": {
+                    "N": {
+                        "location_id": "125403136121479665221961936665761737036",
+                        "text": "Wr\u00f3\u0107 przed bram\u0119 Wyzimy"
+                    },
+                    "E": {
+                        "location_id": "197936349803575928045708682057747501906",
+                        "text": "Udaj si\u0119 w prawo"
+                    },
+                    "W": {
+                        "location_id": "259822976435380947914593591050732557091",
+                        "text": "Udaj si\u0119 w lewo"
+                    }
+                }
+            },
+            "271077546473071744576297381658310636160": {
+                "name": "Bagna",
+                "text": "Widzisz przed sob\u0105 bagno, na kt\u00f3rym czaj\u0105 si\u0119 utopce.",
+                "exits": {
+                    "S": {
+                        "location_id": "125403136121479665221961936665761737036",
+                        "text": "Wr\u00f3\u0107 do wyzimskiej bramy"
+                    }
+                }
+            },
+            "197936349803575928045708682057747501906": {
+                "name": "Rzeka",
+                "text": "Stajesz przed rzek\u0105. Jedyna droga, kt\u00f3r\u0105 mo\u017cesz i\u015b\u0107 dalej, wiedzie przez jezioro. Czy odwa\u017cysz si\u0119 przez nie przep\u0142yn\u0105\u0107?",
+                "exits": {
+                    "E": {
+                        "location_id": "90980049032278108920576714691325138816",
+                        "text": "Przep\u0142yn przez jezioro"
+                    },
+                    "W": {
+                        "location_id": "76703303004571886873979523589785304351",
+                        "text": "Wr\u00f3\u0107 w g\u00f3ry"
+                    }
+                }
+            },
+            "90980049032278108920576714691325138816": {
+                "name": "\u015arodek jeziora",
+                "text": "Na \u015brodku jeziora ze wszystkich stron zaatakowa\u0142y Ci\u0119 utopce. Nie jeste\u015b w stanie z nimi walczy\u0107 na wodzie. Zostajesz zatopiony...",
+                "exits": {},
+                "is_end_location": true
+            },
+            "30861158792428551472695364121347444378": {
+                "name": "Grobowiec wampir\u00f3w",
+                "text": "Wpad\u0142e\u015b w pu\u0142apk\u0119 wampir\u00f3w. Jeden z nich rzuci\u0142 si\u0119 na Ciebie, ko\u0144cz\u0105c Twoje wied\u017ami\u0144skie \u017cycie.",
+                "exits": {},
+                "is_end_location": true
+            }
+        }
+    },
+    "quests": {
+        "156046204925874619912550030749462351976": {
+            "name": "Plaga utopc\u00f3w",
+            "description": "Pom\u00f3\u017c mieszka\u0144com Wyzimy pozby\u0107 si\u0119 utopc\u00f3w",
+            "start_stage_id": "1",
+            "stages": {
+                "1": {
+                    "location_id": "130030942572948726202711001655226261815",
+                    "text": "Na tablicy og\u0142osze\u0144 widzisz zlecenie na utopce, wystawione przez stra\u017cnik\u00f3w. Mo\u017cesz uda\u0107 si\u0119 do nich, aby dowiedzie\u0107 si\u0119 wi\u0119cej.",
+                    "options": {
+                        "42451047423625654217610113037385323942": {
+                            "text": "Zerwij zlecenie",
+                            "next_stage_id": "2",
+                            "response_message": ""
+                        }
+                    }
+                },
+                "2": {
+                    "location_id": "140935830279055016557499613054814329795",
+                    "text": "Stra\u017cnik:\n-Udaj si\u0119 na bagna i zabij utopce, a zap\u0142acimy Ci 20 oren\u00f3w.",
+                    "options": {
+                        "238934259318875373861049722743349890938": {
+                            "text": "Przyjmij zlecenie",
+                            "next_stage_id": "3",
+                            "response_message": "-Powodzenia, wied\u017aminie."
+                        },
+                        "120229128561177238262205061324772720698": {
+                            "text": "Odrzu\u0107 zadanie",
+                            "next_stage_id": "6",
+                            "response_message": ""
+                        }
+                    }
+                },
+                "3": {
+                    "location_id": "271077546473071744576297381658310636160",
+                    "text": "Masz przed sob\u0105 grup\u0119 utopc\u00f3w, o kt\u00f3rych m\u00f3wi\u0142 stra\u017cnik.",
+                    "options": {
+                        "336905990326071548735935676193362054429": {
+                            "text": "Zaatakuj je",
+                            "next_stage_id": "4",
+                            "response_message": "Rozprawiasz si\u0119 z utopcami bez najmniejszego problemu"
+                        }
+                    }
+                },
+                "4": {
+                    "location_id": "140935830279055016557499613054814329795",
+                    "text": "Stra\u017cnik:\n-Czy upora\u0142e\u015b si\u0119 ju\u017c z zadaniem?",
+                    "options": {
+                        "11395913603297821476962704079142620697": {
+                            "text": "-Tak, zabi\u0142em utopce. Przychodz\u0119 po nagrod\u0119",
+                            "next_stage_id": "5",
+                            "response_message": "-Dzi\u0119kujemy Ci, wied\u017aminie. (otrzymujesz 20 oren\u00f3w)"
+                        }
+                    }
+                },
+                "5": {
+                    "location_id": "130030942572948726202711001655226261815",
+                    "text": "Ludzie spogl\u0105daj\u0105 na Ciebie z wi\u0119kszym szacunkiem, ni\u017c zwykle. Miasto jest Ci wdzi\u0119czne za pomoc z utopcami.",
+                    "options": {}
+                },
+                "6": {
+                    "location_id": "130030942572948726202711001655226261815",
+                    "text": "Na ziemi widzisz kartk\u0119 po zleceniu na utopce, kt\u00f3re zerwa\u0142e\u015b, ale ba\u0142e\u015b si\u0119 go wykona\u0107...",
+                    "options": {}
+                }
+            }
+        }
+    }
+}

@@ -51,6 +51,10 @@ class LibraryUI(MDApp):
 
         self.root.ids.game_selection_screen.reload_games()
 
+    def delete_game(self, game: str):
+        self.library.delete_game(game)
+        self.root.ids.game_selection_screen.reload_games()
+
 
 class NavigationButtonLibrary(MDCard):
     text = StringProperty()

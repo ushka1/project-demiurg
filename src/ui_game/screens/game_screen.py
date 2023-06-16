@@ -144,13 +144,14 @@ class GameScreen(MDScreen):
         self.app.runtime.set_player_name(name)
         self.ids.player_name.text = name
         self.dialog.dismiss()
+        self.dialog = None
 
     def rerender(self):
         self._update_description()
         self._update_input_labels()
 
     def handle_keyboard(self, key):
-        if len(self.ids.stack.children) == 0:
+        if len(self.ids.stack.children) == 0 or self.dialog:
             return
 
         stack = self.ids.stack

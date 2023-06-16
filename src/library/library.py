@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 from typing import Tuple
 
 from config.globals import ui_type
@@ -115,9 +116,8 @@ class Library(ILibrary):
         """
         Add a new game to the library. The game must be a valid JSON file.
         """
-        gamefile = open(path)
-        data = json.load(gamefile)
-        gamefile.close()
+        with open(path) as game_file:
+            data = json.load(game_file)
 
         title = data["metadata"]["title"]
         new_game_folder = os.path.join(self.games_folder, title)
@@ -148,3 +148,7 @@ class Library(ILibrary):
             "author": json_data["metadata"]["author"],
             "description": json_data["metadata"]["description"],
         }
+
+    def delete_game(self, game_name: str):
+        game_folder = os.path.join(self.games_folder, game_name)
+        shutil.rmtree(game_folder)

@@ -1,0 +1,31 @@
+
+from config.globals import ui_type
+import unittest
+from kivy.base import stopTouchApp
+if ui_type == "console":
+    from runtime.runtime import Runtime
+
+
+class GameUITestCase(unittest.TestCase):
+    def test_open_game_ui(self):
+        # Create a Runtime instance
+        runtime = Runtime()
+
+        # Simulate opening the game UI
+        runtime.ui.open_game_ui()
+
+        # Simulate selecting an exit
+        exit_key = 'north'
+        runtime.select_exit(exit_key)
+
+        # Verify the current location after selecting the exit
+        current_location = runtime.get_current_location()
+        expected_location = 'Location B'
+        self.assertEqual(current_location.name, expected_location)
+
+        # Clean up the app
+        stopTouchApp()
+
+
+if __name__ == '__main__':
+    unittest.main()

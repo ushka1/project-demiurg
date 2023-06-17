@@ -5,6 +5,7 @@ from kivy.core.text import LabelBase
 from kivy.core.window import Window
 from kivy.properties import StringProperty, ObjectProperty
 from kivymd.app import MDApp
+from kivymd.toast import toast
 from kivymd.uix.card import MDCard
 
 from ui_game.screens.game_screen import GameScreen
@@ -58,6 +59,7 @@ class GameUI(MDApp):
 
     def save_game(self):
         self.runtime.save_game()
+        toast("Game saved")
 
 
 class NavigationButtonGame(MDCard):

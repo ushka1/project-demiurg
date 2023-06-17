@@ -15,6 +15,7 @@ class Metadata:
     title: str
     author: str
     description: str
+    tags: str
 
 
 @dataclass

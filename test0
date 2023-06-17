@@ -1,0 +1,37 @@
+import unittest
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.tests.common import GraphicUnitTest
+from kivy.uix.button import Button
+from ui_library.screens.main_screen import MainScreen
+
+Builder.load_file('ui_library/screens/main_screen.kv')
+
+class Test0(GraphicUnitTest):
+
+    def test_open_and_quit_main_screen(self):
+        class TestApp(App):
+            def build(self):
+                return MainScreen()
+
+        app = TestApp()
+        screen = app.build()
+
+        # Find the "Quit" button 
+        quit_button = None
+        for widget in screen.walk():
+            if isinstance(widget, Button) and widget.text == "Quit":
+                quit_button = widget
+                break
+
+        # Assert that the "Quit" button is found
+        self.assertIsNotNone(quit_button)
+
+        # Simulate clicking the "Quit" button
+        quit_button.dispatch('on_release')
+
+        # Assert that the app has been stopped
+        self.assertTrue(app._app_stopped)
+
+if __name__ == '__main__':
+    unittest.main()

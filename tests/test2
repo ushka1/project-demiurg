@@ -1,0 +1,25 @@
+import unittest
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.tests.common import GraphicUnitTest
+from ui_library.screens.game_selection_screen import GameSelectionScreen
+
+Builder.load_file('ui_library/screens/game_selection_screen.kv')
+
+class TestSelectGame(GraphicUnitTest):   
+    def test_game_selection_screen(self):
+        class TestApp(App):
+            def build(self):
+                return GameSelectionScreen()
+
+        app = TestApp()
+        screen = app.build()
+
+        # Simulate selecting a game
+        game_card = screen.ids.stack.children[0]  # there's at least one game 
+        game_card.dispatch('on_release')  # Simulate a button release event 
+
+        app.stop()  # Stop the app
+
+if __name__ == '__main__':
+    unittest.main()

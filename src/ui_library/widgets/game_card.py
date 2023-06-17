@@ -26,25 +26,24 @@ class GameCard(MDCard):
         self.game_tags = re.split(', |,', details["tags"])
 
     def show_open_dialog(self):
-        if not self.dialog:
-            self.dialog = MDDialog(
-                title="Do you want to play this game?",
-                text=f"{self.game_title}\nby {self.game_author}\n\n{self.game_description}",
-                buttons=[
-                    MDFlatButton(
-                        text="NEW GAME",
-                        on_press=lambda x: self.play(force_reset=True),
-                    ),
-                    MDFlatButton(
-                        text="LOAD",
-                        on_press=lambda x: self.play(),
-                    ),
-                    MDFlatButton(
-                        text="CANCEL",
-                        on_press=lambda x: self.dismiss_dialog(),
-                    ),
-                ],
-            )
+        self.dialog = MDDialog(
+            title="Do you want to play this game?",
+            text=f"{self.game_title}\nby {self.game_author}\n\n{self.game_description}",
+            buttons=[
+                MDFlatButton(
+                    text="NEW GAME",
+                    on_press=lambda x: self.play(force_reset=True),
+                ),
+                MDFlatButton(
+                    text="LOAD",
+                    on_press=lambda x: self.play(),
+                ),
+                MDFlatButton(
+                    text="CANCEL",
+                    on_press=lambda x: self.dismiss_dialog(),
+                ),
+            ],
+        )
         self.dialog.open()
 
     def show_delete_dialog(self):
@@ -53,7 +52,7 @@ class GameCard(MDCard):
             self.dialog.dismiss()
 
         self.dialog = MDDialog(
-            title="Delete project?",
+            title="Delete game?",
             text="Warning: You cannot undo this action",
             buttons=[
                 MDFlatButton(

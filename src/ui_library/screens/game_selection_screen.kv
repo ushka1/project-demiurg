@@ -34,15 +34,27 @@
 
         Widget:  # needed for top bar to stay at the top
 
-    Label:
-        text: "Available games:"
-#        font_name: "Monoton"
-        font_size: dp(20)
+#    Label:
+#        text: "Available games:"
+##        font_name: "Monoton"
+#        font_size: dp(20)
+#        pos_hint: {"center_x": 0.5, "center_y": 0.85}
+
+    MDTextField:
+        id: tags_field
+        hint_text: "Filter games with tag:"
+        size_hint_x: 0.3
+        mode: "rectangle"
         pos_hint: {"center_x": 0.5, "center_y": 0.85}
+
+    MDIconButton:
+        icon: "filter-outline"
+        pos_hint: {"center_x": 0.67, "center_y": 0.85}
+        on_press: root.reload_games()
 
 
     ScrollView:
-        pos_hint: {"center_x": 0.5, "top": 0.85}
+        pos_hint: {"center_x": 0.5, "top": 0.75}
         size_hint: 0.4, 0.6
 
         StackLayout:

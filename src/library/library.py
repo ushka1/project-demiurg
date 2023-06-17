@@ -147,6 +147,7 @@ class Library(ILibrary):
         return {
             "author": json_data["metadata"]["author"],
             "description": json_data["metadata"]["description"],
+            "tags": json_data["metadata"]["tags"],
         }
 
     def delete_game(self, game_name: str):

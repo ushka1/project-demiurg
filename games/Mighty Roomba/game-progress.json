@@ -1,10 +1,6 @@
 {
-  "location_id": "2",
-  "quests": {
-    "1": {
-      "stage_id": "3"
-    }
-  },
-  "message": "You spend time in deep contemplation, pondering the meaning of your existence as a Roomba.",
+  "location_id": "0",
+  "quests": {},
+  "message": null,
   "player_name": null
 }
